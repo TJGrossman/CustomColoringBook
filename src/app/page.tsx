@@ -7,10 +7,29 @@ import { Button } from "@/components/ui/button";
 import Image from "next/image";
 import { PlaceHolderImages } from "@/lib/placeholder-images";
 import { ArrowRight } from "lucide-react";
+import { useEffect, useState } from "react";
+import { useIsMobile } from "@/hooks/use-mobile";
 
 export default function Home() {
   const heroPhoto = PlaceHolderImages.find(img => img.id === 'hero-photo');
   const heroColoring = PlaceHolderImages.find(img => img.id === 'hero-coloring');
+  const [isAtBottom, setIsAtBottom] = useState(false);
+  const isMobile = useIsMobile();
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const windowHeight = window.innerHeight;
+      const documentHeight = document.documentElement.scrollHeight;
+      const scrollTop = window.scrollY || document.documentElement.scrollTop;
+      const isBottom = scrollTop + windowHeight >= documentHeight - 50; // 50px threshold
+      setIsAtBottom(isBottom);
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    handleScroll(); // Check initial position
+
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
   return (
     <div className="flex flex-col min-h-screen">
@@ -29,15 +48,15 @@ export default function Home() {
               <div className="flex flex-col justify-center space-y-6 md:space-y-4">
                 <div className="space-y-6 md:space-y-4">
                   <h1 className="text-2xl font-bold tracking-tighter sm:text-5xl xl:text-6xl/none font-headline">
-                    Create custom coloring books from your photos – Fast
+                    Create custom coloring books from your photos – fast!
                   </h1>
                   <p className="max-w-[600px] text-muted-foreground md:text-xl">
-                    Just upload your favorite photos, and our AI will magically convert them into beautiful, printable coloring book pages. It's fun, creative, and simple!
+                    Upload your favorite photos, and let AI convert them into beautiful, printable coloring books.
                   </p>
-                  <p className="text-lg font-medium text-foreground">
+                  <blockquote className="text-lg md:text-xl font-medium text-foreground italic border-l-4 border-primary pl-4">
                     Capture the moments that matter.<br />
                     Let your child color their story.
-                  </p>
+                  </blockquote>
                 </div>
                 <div className="flex flex-col gap-2 min-[400px]:flex-row">
                    <Button asChild size="lg">
@@ -47,35 +66,40 @@ export default function Home() {
                       </Link>
                     </Button>
                 </div>
+                <p className="text-sm text-muted-foreground mt-4 max-w-[600px]">
+                  <strong>*Pro Tip:</strong> If your little one's imagination is running wild, you can tell our AI how you want to update the images to add a little magic to the memories.
+                </p>
               </div>
-              <div className="grid grid-cols-2 gap-4">
-                {heroPhoto && (
-                   <Image
-                      src={heroPhoto.imageUrl}
-                      alt={heroPhoto.description}
-                      width={600}
-                      height={800}
-                      className="mx-auto aspect-[3/4] overflow-hidden rounded-xl object-cover"
-                      data-ai-hint={heroPhoto.imageHint}
-                   />
-                )}
-                 {heroColoring && (
+              <div className="flex justify-center">
+                <div className="relative aspect-[8.5/11] w-full max-w-md bg-gray-100 rounded-lg overflow-hidden shadow-md">
+                  {/* Simple coloring book image - full size background */}
+                  <div className="absolute inset-0">
                     <Image
-                      src={heroColoring.imageUrl}
-                      alt={heroColoring.description}
-                      width={600}
-                      height={800}
-                      className="mx-auto aspect-[3/4] overflow-hidden rounded-xl object-cover"
-                      data-ai-hint={heroColoring.imageHint}
+                      src="/examples/easy.png"
+                      alt="Coloring book example"
+                      width={432}
+                      height={560}
+                      className="w-full h-full object-contain"
                     />
-                 )}
+                  </div>
+                  {/* Original image - left half overlay with higher z-index */}
+                  <div className="absolute inset-0 overflow-hidden z-10" style={{clipPath: 'inset(0 50% 0 0)'}}>
+                    <Image
+                      src="/examples/originalFull.png"
+                      alt="Original photo"
+                      width={432}
+                      height={560}
+                      className="w-full h-full object-contain"
+                    />
+                  </div>
+                </div>
               </div>
             </div>
           </div>
         </section>
       </main>
       <footer className="flex flex-col gap-2 sm:flex-row py-6 w-full shrink-0 items-center px-4 md:px-6 border-t">
-        <p className="text-xs text-muted-foreground">&copy; 2024 ColoringPics. All rights reserved.</p>
+        <p className="text-xs text-muted-foreground">&copy; 2025 ColoringPics. All rights reserved.</p>
         <nav className="sm:ml-auto flex gap-4 sm:gap-6">
           <Link href="#" className="text-xs hover:underline underline-offset-4" prefetch={false}>
             Terms of Service
@@ -85,6 +109,18 @@ export default function Home() {
           </Link>
         </nav>
       </footer>
+      
+      {/* Mobile-only fixed button at bottom when scrolled */}
+      {isMobile && isAtBottom && (
+        <div className="fixed bottom-0 left-0 right-0 z-50 pt-4 pb-9 bg-background/95 backdrop-blur-sm border-t sm:hidden">
+          <Button asChild size="lg" className="w-full rounded-none">
+            <Link href="/create">
+              Create Your Coloring Book
+              <ArrowRight className="ml-2 h-4 w-4" />
+            </Link>
+          </Button>
+        </div>
+      )}
     </div>
   );
 }

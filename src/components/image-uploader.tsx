@@ -251,7 +251,7 @@ export function ImageUploader() {
                         </h3>
                         <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4">
                             {files.map((uploadedFile, index) => (
-                                <div key={index} className="relative group aspect-square">
+                                <div key={index} className="relative group" style={{aspectRatio: '8.5 / 11'}}>
                                     <Image
                                         src={uploadedFile.preview}
                                         alt={uploadedFile.file.name}
@@ -312,31 +312,50 @@ export function ImageUploader() {
                                                             <X className="h-4 w-4 sm:h-5 sm:w-5" />
                                                         </button>
                                                     </div>
-                                                    <div className="flex gap-8 sm:gap-12">
-                                                        <div className="text-center">
-                                                            <div className="aspect-[8.5/11] w-36 sm:w-72 bg-gray-100 rounded-lg mb-2 overflow-hidden shadow-md">
+                                                    
+                                                    <div className="text-center">
+                                                        <div className="relative aspect-[8.5/11] w-72 sm:w-96 bg-gray-100 rounded-lg mb-2 overflow-hidden shadow-md mx-auto">
+                                                            {/* Coloring book image - full size background */}
+                                                            <div className="absolute inset-0">
                                                                 <Image
-                                                                    src={difficultyExamples.original}
-                                                                    alt="Original"
-                                                                    width={216}
-                                                                    height={280}
-                                                                    className="w-full h-full object-contain"
-                                                                />
-                                                            </div>
-                                                            <p className="text-sm sm:text-base font-medium">Original</p>
-                                                        </div>
-                                                        <div className="text-center">
-                                                            <div className="aspect-[8.5/11] w-36 sm:w-72 bg-gray-100 rounded-lg mb-2 overflow-hidden shadow-md">
-                                                                <Image
-                                                                    src={difficultyExamples[difficulty as keyof typeof difficultyExamples]}
+                                                                    src={`${difficultyExamples[difficulty as keyof typeof difficultyExamples]}?v=${Date.now()}`}
                                                                     alt={difficultyLabels[difficulty]}
-                                                                    width={216}
-                                                                    height={280}
+                                                                    width={432}
+                                                                    height={560}
                                                                     className="w-full h-full object-contain"
                                                                 />
                                                             </div>
-                                                            <p className="text-sm sm:text-base font-medium">{difficultyLabels[difficulty]}</p>
+                                                            {/* Original image - left half overlay with higher z-index */}
+                                                            <div className="absolute inset-0 overflow-hidden z-10" style={{clipPath: 'inset(0 50% 0 0)'}}>
+                                                                <Image
+                                                                    src={`${difficultyExamples.original}?v=${Date.now()}`}
+                                                                    alt="Original"
+                                                                    width={432}
+                                                                    height={560}
+                                                                    className="w-full h-full object-contain"
+                                                                />
+                                                            </div>
                                                         </div>
+                                                        <div className="flex justify-between text-xs sm:text-sm font-medium">
+                                                            <span>Original</span>
+                                                            <span>{difficultyLabels[difficulty]}</span>
+                                                        </div>
+                                                    </div>
+                                                    
+                                                    {/* Mobile-only slider inside tooltip */}
+                                                    <div className="flex items-center gap-4 sm:hidden">
+                                                        <span className="text-sm text-muted-foreground">Very Simple</span>
+                                                        <div className="flex-1">
+                                                            <Slider
+                                                                id="difficulty-slider-tooltip"
+                                                                min={1}
+                                                                max={5}
+                                                                step={1}
+                                                                value={[difficulty]}
+                                                                onValueChange={(value) => setDifficulty(value[0])}
+                                                            />
+                                                        </div>
+                                                        <span className="text-sm text-muted-foreground">Very Detailed</span>
                                                     </div>
                                                 </div>
                                             </div>
@@ -347,13 +366,13 @@ export function ImageUploader() {
                             </div>
                         </div>
                     </div>
-                    <div className={`flex ${isAddingMorePhotos ? 'justify-between' : 'justify-end'}`}>
+                    <div className={`flex flex-col sm:flex-row ${isAddingMorePhotos ? 'sm:justify-between' : 'sm:justify-end'} gap-2`}>
                         {isAddingMorePhotos && (
-                            <Button onClick={() => setIsAddingMorePhotos(false)} variant="outline" size="lg">
+                            <Button onClick={() => setIsAddingMorePhotos(false)} variant="outline" size="lg" className="w-full sm:w-auto">
                                 Cancel
                             </Button>
                         )}
-                         <Button onClick={() => setCroppingStep(true)} disabled={isButtonDisabled} size="lg">
+                         <Button onClick={() => setCroppingStep(true)} disabled={isButtonDisabled} size="lg" className="w-full sm:w-auto">
                             {isSubmitting ? (
                                 <>
                                     <Loader2 className="mr-2 h-4 w-4 animate-spin" />

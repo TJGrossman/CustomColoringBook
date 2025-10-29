@@ -104,7 +104,7 @@ if (typeof globalThis.$RefreshHelpers$ === 'object' && globalThis.$RefreshHelper
 
 var { g: global, __dirname } = __turbopack_context__;
 {
-__turbopack_context__.v(JSON.parse("{\"placeholderImages\":[{\"id\":\"hero-photo\",\"description\":\"A family enjoying a day at the beach.\",\"imageUrl\":\"/examples/original.png\",\"imageHint\":\"family beach photo\"},{\"id\":\"hero-coloring\",\"description\":\"A coloring book version of the family beach photo.\",\"imageUrl\":\"/examples/normal.png\",\"imageHint\":\"family beach coloring page\"},{\"id\":\"feature-1\",\"description\":\"Person uploading photos to a cloud service.\",\"imageUrl\":\"https://images.unsplash.com/photo-1616856137831-38f9aba296a9?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw0fHx1cGxvYWRpbmclMjBwaG90b3N8ZW58MHx8fHwxNzYxNDYzNTY1fDA&ixlib=rb-4.1.0&q=80&w=1080\",\"imageHint\":\"uploading photos\"},{\"id\":\"feature-2\",\"description\":\"An AI robot holding a paintbrush.\",\"imageUrl\":\"https://images.unsplash.com/photo-1562187415-6462382445da?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw4fHxBSSUyMGFydHxlbnwwfHx8fDE3NjE0NDYyNjh8MA&ixlib=rb-4.1.0&q=80&w=1080\",\"imageHint\":\"AI art\"},{\"id\":\"feature-3\",\"description\":\"A printed book and a tablet showing a PDF.\",\"imageUrl\":\"https://images.unsplash.com/photo-1695238665555-274f5d5c610b?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw3fHxwcmludGVkJTIwYm9va3xlbnwwfHx8fDE3NjE0NjM1NjV8MA&ixlib=rb-4.1.0&q=80&w=1080\",\"imageHint\":\"printed book\"},{\"id\":\"project-cover-1\",\"description\":\"A family portrait.\",\"imageUrl\":\"https://images.unsplash.com/photo-1596510914965-9ae08acae566?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw5fHxmYW1pbHklMjBwb3J0cmFpdHxlbnwwfHx8fDE3NjEzNjg0NTF8MA&ixlib=rb-4.1.0&q=80&w=1080\",\"imageHint\":\"family portrait\"},{\"id\":\"project-cover-2\",\"description\":\"A dog playing in a park.\",\"imageUrl\":\"https://images.unsplash.com/photo-1589756695365-4e0915b3a246?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwyfHxkb2clMjBwYXJrfGVufDB8fHx8MTc2MTQ0NjczMHww&ixlib=rb-4.1.0&q=80&w=1080\",\"imageHint\":\"dog park\"},{\"id\":\"project-cover-3\",\"description\":\"A beautiful wedding photo.\",\"imageUrl\":\"https://images.unsplash.com/photo-1659426011080-9a63537ed679?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw3fHx3ZWRkaW5nJTIwcGhvdG98ZW58MHx8fHwxNzYxNDYzNTY1fDA&ixlib=rb-4.1.0&q=80&w=1080\",\"imageHint\":\"wedding photo\"},{\"id\":\"project-cover-4\",\"description\":\"A collection of travel photos from Italy.\",\"imageUrl\":\"https://images.unsplash.com/photo-1575319193293-9eca40c67e21?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwzfHxJdGFseSUyMHRyYXZlbHxlbnwwfHx8fDE3NjE0NjM1NjV8MA&ixlib=rb-4.1.0&q=80&w=1080\",\"imageHint\":\"Italy travel\"}]}"));}}),
+__turbopack_context__.v(JSON.parse("{\"placeholderImages\":[{\"id\":\"hero-photo\",\"description\":\"A family enjoying a day at the beach.\",\"imageUrl\":\"/examples/originalFull.png\",\"imageHint\":\"family beach photo\"},{\"id\":\"hero-coloring\",\"description\":\"A coloring book version of the family beach photo.\",\"imageUrl\":\"/examples/normal.png\",\"imageHint\":\"family beach coloring page\"},{\"id\":\"feature-1\",\"description\":\"Person uploading photos to a cloud service.\",\"imageUrl\":\"https://images.unsplash.com/photo-1616856137831-38f9aba296a9?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw0fHx1cGxvYWRpbmclMjBwaG90b3N8ZW58MHx8fHwxNzYxNDYzNTY1fDA&ixlib=rb-4.1.0&q=80&w=1080\",\"imageHint\":\"uploading photos\"},{\"id\":\"feature-2\",\"description\":\"An AI robot holding a paintbrush.\",\"imageUrl\":\"https://images.unsplash.com/photo-1562187415-6462382445da?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw4fHxBSSUyMGFydHxlbnwwfHx8fDE3NjE0NDYyNjh8MA&ixlib=rb-4.1.0&q=80&w=1080\",\"imageHint\":\"AI art\"},{\"id\":\"feature-3\",\"description\":\"A printed book and a tablet showing a PDF.\",\"imageUrl\":\"https://images.unsplash.com/photo-1695238665555-274f5d5c610b?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw3fHxwcmludGVkJTIwYm9va3xlbnwwfHx8fDE3NjE0NjM1NjV8MA&ixlib=rb-4.1.0&q=80&w=1080\",\"imageHint\":\"printed book\"},{\"id\":\"project-cover-1\",\"description\":\"A family portrait.\",\"imageUrl\":\"https://images.unsplash.com/photo-1596510914965-9ae08acae566?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw5fHxmYW1pbHklMjBwb3J0cmFpdHxlbnwwfHx8fDE3NjEzNjg0NTF8MA&ixlib=rb-4.1.0&q=80&w=1080\",\"imageHint\":\"family portrait\"},{\"id\":\"project-cover-2\",\"description\":\"A dog playing in a park.\",\"imageUrl\":\"https://images.unsplash.com/photo-1589756695365-4e0915b3a246?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwyfHxkb2clMjBwYXJrfGVufDB8fHx8MTc2MTQ0NjczMHww&ixlib=rb-4.1.0&q=80&w=1080\",\"imageHint\":\"dog park\"},{\"id\":\"project-cover-3\",\"description\":\"A beautiful wedding photo.\",\"imageUrl\":\"https://images.unsplash.com/photo-1659426011080-9a63537ed679?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw3fHx3ZWRkaW5nJTIwcGhvdG98ZW58MHx8fHwxNzYxNDYzNTY1fDA&ixlib=rb-4.1.0&q=80&w=1080\",\"imageHint\":\"wedding photo\"},{\"id\":\"project-cover-4\",\"description\":\"A collection of travel photos from Italy.\",\"imageUrl\":\"https://images.unsplash.com/photo-1575319193293-9eca40c67e21?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwzfHxJdGFseSUyMHRyYXZlbHxlbnwwfHx8fDE3NjE0NjM1NjV8MA&ixlib=rb-4.1.0&q=80&w=1080\",\"imageHint\":\"Italy travel\"}]}"));}}),
 "[project]/src/lib/placeholder-images.ts [app-client] (ecmascript)": ((__turbopack_context__) => {
 "use strict";
 
@@ -208,7 +208,7 @@ function Home() {
                                             children: [
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("h1", {
                                                     className: "text-2xl font-bold tracking-tighter sm:text-5xl xl:text-6xl/none font-headline",
-                                                    children: "Create custom coloring books from your photos – Fast"
+                                                    children: "Create custom coloring books from your photos – fast!"
                                                 }, void 0, false, {
                                                     fileName: "[project]/src/app/page.tsx",
                                                     lineNumber: 31,
@@ -216,14 +216,14 @@ function Home() {
                                                 }, this),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
                                                     className: "max-w-[600px] text-muted-foreground md:text-xl",
-                                                    children: "Just upload your favorite photos, and our AI will magically convert them into beautiful, printable coloring book pages. It's fun, creative, and simple!"
+                                                    children: "Upload your favorite photos, and let AI convert them into beautiful, printable coloring books."
                                                 }, void 0, false, {
                                                     fileName: "[project]/src/app/page.tsx",
                                                     lineNumber: 34,
                                                     columnNumber: 19
                                                 }, this),
-                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
-                                                    className: "text-lg font-medium text-foreground",
+                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("blockquote", {
+                                                    className: "text-lg md:text-xl font-medium text-foreground italic border-l-4 border-primary pl-4",
                                                     children: [
                                                         "Capture the moments that matter.",
                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("br", {}, void 0, false, {
@@ -275,6 +275,23 @@ function Home() {
                                             fileName: "[project]/src/app/page.tsx",
                                             lineNumber: 42,
                                             columnNumber: 17
+                                        }, this),
+                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
+                                            className: "text-sm text-muted-foreground mt-4 max-w-[600px]",
+                                            children: [
+                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("strong", {
+                                                    children: "*Pro Tip:"
+                                                }, void 0, false, {
+                                                    fileName: "[project]/src/app/page.tsx",
+                                                    lineNumber: 51,
+                                                    columnNumber: 19
+                                                }, this),
+                                                " If your little one's imagination is running wild, you can tell our AI how you want to update the images to add a little magic to the memories."
+                                            ]
+                                        }, void 0, true, {
+                                            fileName: "[project]/src/app/page.tsx",
+                                            lineNumber: 50,
+                                            columnNumber: 17
                                         }, this)
                                     ]
                                 }, void 0, true, {
@@ -283,36 +300,58 @@ function Home() {
                                     columnNumber: 15
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                    className: "grid grid-cols-2 gap-4",
-                                    children: [
-                                        heroPhoto && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$image$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"], {
-                                            src: heroPhoto.imageUrl,
-                                            alt: heroPhoto.description,
-                                            width: 600,
-                                            height: 800,
-                                            className: "mx-auto aspect-[3/4] overflow-hidden rounded-xl object-cover",
-                                            "data-ai-hint": heroPhoto.imageHint
-                                        }, void 0, false, {
-                                            fileName: "[project]/src/app/page.tsx",
-                                            lineNumber: 53,
-                                            columnNumber: 20
-                                        }, this),
-                                        heroColoring && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$image$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"], {
-                                            src: heroColoring.imageUrl,
-                                            alt: heroColoring.description,
-                                            width: 600,
-                                            height: 800,
-                                            className: "mx-auto aspect-[3/4] overflow-hidden rounded-xl object-cover",
-                                            "data-ai-hint": heroColoring.imageHint
-                                        }, void 0, false, {
-                                            fileName: "[project]/src/app/page.tsx",
-                                            lineNumber: 63,
-                                            columnNumber: 21
-                                        }, this)
-                                    ]
-                                }, void 0, true, {
+                                    className: "flex justify-center",
+                                    children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                        className: "relative aspect-[8.5/11] w-full max-w-md bg-gray-100 rounded-lg overflow-hidden shadow-md",
+                                        children: [
+                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                                className: "absolute inset-0",
+                                                children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$image$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"], {
+                                                    src: "/examples/easy.png",
+                                                    alt: "Coloring book example",
+                                                    width: 432,
+                                                    height: 560,
+                                                    className: "w-full h-full object-contain"
+                                                }, void 0, false, {
+                                                    fileName: "[project]/src/app/page.tsx",
+                                                    lineNumber: 58,
+                                                    columnNumber: 21
+                                                }, this)
+                                            }, void 0, false, {
+                                                fileName: "[project]/src/app/page.tsx",
+                                                lineNumber: 57,
+                                                columnNumber: 19
+                                            }, this),
+                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                                className: "absolute inset-0 overflow-hidden z-10",
+                                                style: {
+                                                    clipPath: 'inset(0 50% 0 0)'
+                                                },
+                                                children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$image$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"], {
+                                                    src: "/examples/originalFull.png",
+                                                    alt: "Original photo",
+                                                    width: 432,
+                                                    height: 560,
+                                                    className: "w-full h-full object-contain"
+                                                }, void 0, false, {
+                                                    fileName: "[project]/src/app/page.tsx",
+                                                    lineNumber: 68,
+                                                    columnNumber: 21
+                                                }, this)
+                                            }, void 0, false, {
+                                                fileName: "[project]/src/app/page.tsx",
+                                                lineNumber: 67,
+                                                columnNumber: 19
+                                            }, this)
+                                        ]
+                                    }, void 0, true, {
+                                        fileName: "[project]/src/app/page.tsx",
+                                        lineNumber: 55,
+                                        columnNumber: 17
+                                    }, this)
+                                }, void 0, false, {
                                     fileName: "[project]/src/app/page.tsx",
-                                    lineNumber: 51,
+                                    lineNumber: 54,
                                     columnNumber: 15
                                 }, this)
                             ]
@@ -341,10 +380,10 @@ function Home() {
                 children: [
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
                         className: "text-xs text-muted-foreground",
-                        children: "© 2024 ColoringPics. All rights reserved."
+                        children: "© 2025 ColoringPics. All rights reserved."
                     }, void 0, false, {
                         fileName: "[project]/src/app/page.tsx",
-                        lineNumber: 78,
+                        lineNumber: 83,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("nav", {
@@ -357,7 +396,7 @@ function Home() {
                                 children: "Terms of Service"
                             }, void 0, false, {
                                 fileName: "[project]/src/app/page.tsx",
-                                lineNumber: 80,
+                                lineNumber: 85,
                                 columnNumber: 11
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$client$2f$app$2d$dir$2f$link$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"], {
@@ -367,19 +406,19 @@ function Home() {
                                 children: "Privacy"
                             }, void 0, false, {
                                 fileName: "[project]/src/app/page.tsx",
-                                lineNumber: 83,
+                                lineNumber: 88,
                                 columnNumber: 11
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/src/app/page.tsx",
-                        lineNumber: 79,
+                        lineNumber: 84,
                         columnNumber: 9
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "[project]/src/app/page.tsx",
-                lineNumber: 77,
+                lineNumber: 82,
                 columnNumber: 7
             }, this)
         ]
