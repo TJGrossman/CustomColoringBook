@@ -273,10 +273,10 @@ export function ImageUploader() {
                 
                 <div className="mt-8 flex flex-col gap-6">
                     <div className='flex flex-col sm:flex-row gap-6 sm:gap-8'>
-                        <div className="flex items-center space-x-2">
+                        {/* <div className="flex items-center space-x-2">
                             <Switch id="realistic-style" checked={style === 'realistic'} onCheckedChange={(checked) => setStyle(checked ? 'realistic' : 'outline')} />
                             <Label htmlFor="realistic-style">Realistic Style</Label>
-                        </div>
+                        </div> */}
                         <div className="grid gap-2 w-full max-w-sm">
                              <div className="flex justify-between items-center">
                                 <Label htmlFor="difficulty-slider">Level of Detail: {difficultyLabels[difficulty]}</Label>
