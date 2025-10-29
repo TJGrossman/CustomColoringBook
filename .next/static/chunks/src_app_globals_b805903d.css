@@ -651,6 +651,14 @@ h1, h2, h3, h4, h5, h6 {
   margin-top: .75rem;
 }
 
+.mb-3 {
+  margin-bottom: .75rem;
+}
+
+.mb-6 {
+  margin-bottom: 1.5rem;
+}
+
 .block {
   display: block;
 }
@@ -996,6 +1004,10 @@ h1, h2, h3, h4, h5, h6 {
   max-width: 314px;
 }
 
+.max-w-4xl {
+  max-width: 56rem;
+}
+
 .flex-1 {
   flex: 1;
 }
@@ -1097,6 +1109,10 @@ h1, h2, h3, h4, h5, h6 {
 
 .select-none {
   user-select: none;
+}
+
+.list-disc {
+  list-style-type: disc;
 }
 
 .grid-cols-1 {
@@ -1231,6 +1247,12 @@ h1, h2, h3, h4, h5, h6 {
   --tw-space-y-reverse: 0;
   margin-top: calc(2rem * calc(1 - var(--tw-space-y-reverse)));
   margin-bottom: calc(2rem * var(--tw-space-y-reverse));
+}
+
+.space-x-3 > :not([hidden]) ~ :not([hidden]) {
+  --tw-space-x-reverse: 0;
+  margin-right: calc(.75rem * var(--tw-space-x-reverse));
+  margin-left: calc(.75rem * calc(1 - var(--tw-space-x-reverse)));
 }
 
 .overflow-auto {
@@ -1540,6 +1562,10 @@ h1, h2, h3, h4, h5, h6 {
   background-color: #1a0d2ee6;
 }
 
+.bg-purple-900\/30 {
+  background-color: #581c874d;
+}
+
 .fill-current {
   fill: currentColor;
 }
@@ -1735,6 +1761,14 @@ h1, h2, h3, h4, h5, h6 {
   padding-top: 3rem;
 }
 
+.pl-6 {
+  padding-left: 1.5rem;
+}
+
+.pt-8 {
+  padding-top: 2rem;
+}
+
 .text-left {
   text-align: left;
 }
@@ -1825,6 +1859,10 @@ h1, h2, h3, h4, h5, h6 {
 
 .leading-none {
   line-height: 1;
+}
+
+.leading-relaxed {
+  line-height: 1.625;
 }
 
 .tracking-tight {
@@ -1938,6 +1976,10 @@ h1, h2, h3, h4, h5, h6 {
 .text-purple-200 {
   --tw-text-opacity: 1;
   color: rgb(233 213 255 / var(--tw-text-opacity, 1));
+}
+
+.underline {
+  text-decoration-line: underline;
 }
 
 .underline-offset-4 {
@@ -2269,6 +2311,11 @@ h1, h2, h3, h4, h5, h6 {
 .hover\:text-purple-200:hover {
   --tw-text-opacity: 1;
   color: rgb(233 213 255 / var(--tw-text-opacity, 1));
+}
+
+.hover\:text-purple-100:hover {
+  --tw-text-opacity: 1;
+  color: rgb(243 232 255 / var(--tw-text-opacity, 1));
 }
 
 .hover\:underline:hover {
@@ -3047,6 +3094,18 @@ h1, h2, h3, h4, h5, h6 {
     margin-bottom: calc(1.5rem * var(--tw-space-y-reverse));
   }
 
+  .sm\:space-x-3 > :not([hidden]) ~ :not([hidden]) {
+    --tw-space-x-reverse: 0;
+    margin-right: calc(.75rem * var(--tw-space-x-reverse));
+    margin-left: calc(.75rem * calc(1 - var(--tw-space-x-reverse)));
+  }
+
+  .sm\:space-y-4 > :not([hidden]) ~ :not([hidden]) {
+    --tw-space-y-reverse: 0;
+    margin-top: calc(1rem * calc(1 - var(--tw-space-y-reverse)));
+    margin-bottom: calc(1rem * var(--tw-space-y-reverse));
+  }
+
   .sm\:rounded-lg {
     border-radius: var(--radius);
   }
@@ -3089,6 +3148,10 @@ h1, h2, h3, h4, h5, h6 {
 
   .sm\:pt-4 {
     padding-top: 1rem;
+  }
+
+  .sm\:pt-12 {
+    padding-top: 3rem;
   }
 
   .sm\:text-left {
@@ -3169,6 +3232,10 @@ h1, h2, h3, h4, h5, h6 {
     --tw-space-y-reverse: 0;
     margin-top: calc(2rem * calc(1 - var(--tw-space-y-reverse)));
     margin-bottom: calc(2rem * var(--tw-space-y-reverse));
+  }
+
+  .md\:p-12 {
+    padding: 3rem;
   }
 
   .md\:px-6 {
@@ -3262,6 +3329,10 @@ h1, h2, h3, h4, h5, h6 {
   .lg\:py-32 {
     padding-top: 8rem;
     padding-bottom: 8rem;
+  }
+
+  .lg\:pt-16 {
+    padding-top: 4rem;
   }
 }
 

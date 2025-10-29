@@ -14,6 +14,8 @@ import { Switch } from './ui/switch';
 import { Slider } from './ui/slider';
 import { ImageCropper } from './image-cropper';
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from './ui/tooltip';
+import { Checkbox } from './ui/checkbox';
+import Link from 'next/link';
 
 interface UploadedFile {
     file: File;
@@ -44,6 +46,10 @@ export function ImageUploader() {
     const [style, setStyle] = useState<GenerateColoringBookImagesInput['style']>('outline');
     const [difficulty, setDifficulty] = useState(3);
     const [croppingStep, setCroppingStep] = useState(false);
+    const [termsStep, setTermsStep] = useState(false);
+    const [agreedToTerms, setAgreedToTerms] = useState(false);
+    const [agreedToPrivacy, setAgreedToPrivacy] = useState(false);
+    const [pendingCroppedImages, setPendingCroppedImages] = useState<string[]>([]);
     const [isAddingMorePhotos, setIsAddingMorePhotos] = useState(false);
     const [showDifficultyTooltip, setShowDifficultyTooltip] = useState(false); // Tooltip state
 
@@ -145,6 +151,10 @@ export function ImageUploader() {
         setConvertedImages([]);
         setIsSubmitting(false);
         setCroppingStep(false);
+        setTermsStep(false);
+        setAgreedToTerms(false);
+        setAgreedToPrivacy(false);
+        setPendingCroppedImages([]);
         setIsAddingMorePhotos(false);
     }
 
@@ -153,20 +163,40 @@ export function ImageUploader() {
         setFiles([]);
     }
     
-    const handleCroppingComplete = async (croppedImageUris: string[]) => {
-        setIsSubmitting(true);
+    const handleCroppingComplete = (croppedImageUris: string[]) => {
+        setPendingCroppedImages(croppedImageUris);
         setCroppingStep(false);
+        // Only show terms step if it's the first time (not adding more photos)
+        if (!isAddingMorePhotos) {
+            setTermsStep(true);
+        } else {
+            // If adding more photos, skip terms and go straight to generation
+            handleTermsAcceptance(croppedImageUris);
+        }
+    }
+
+    const handleTermsAcceptance = async (croppedImageUris?: string[]) => {
+        if (!agreedToTerms || !agreedToPrivacy) {
+            toast({ title: "Acceptance Required", description: "Please accept both the Terms of Service and Privacy Policy to continue.", variant: 'destructive' });
+            return;
+        }
+
+        const imagesToProcess = croppedImageUris || pendingCroppedImages;
+        setIsSubmitting(true);
+        setTermsStep(false);
+        setAgreedToTerms(false);
+        setAgreedToPrivacy(false);
 
         try {
-            toast({ title: "Let the magic begin...", description: `Our AI is converting your ${croppedImageUris.length} photos. This might take a moment.` });
+            toast({ title: "Let the magic begin...", description: `Our AI is converting your ${imagesToProcess.length} photos. This might take a moment.` });
             
-            const { coloringBookDataUris } = await generateColoringBookImages({ photoDataUris: croppedImageUris, style, difficulty });
+            const { coloringBookDataUris } = await generateColoringBookImages({ photoDataUris: imagesToProcess, style, difficulty });
 
-            if (!coloringBookDataUris || coloringBookDataUris.length !== croppedImageUris.length) {
+            if (!coloringBookDataUris || coloringBookDataUris.length !== imagesToProcess.length) {
                 throw new Error("The AI did not return the expected number of images.");
             }
 
-            const newConvertedImages = croppedImageUris.map((originalUri, index) => ({
+            const newConvertedImages = imagesToProcess.map((originalUri, index) => ({
                 original: originalUri,
                 converted: coloringBookDataUris[index]
             }));
@@ -182,6 +212,7 @@ export function ImageUploader() {
                 toast({ title: "Coloring Book Created!", description: "Your images have been converted into a coloring book." });
             }
             setFiles([]);
+            setPendingCroppedImages([]);
 
         } catch (error) {
             console.error(error);
@@ -228,6 +259,72 @@ export function ImageUploader() {
 
     if (croppingStep) {
         return <ImageCropper images={files.map(f => f.preview)} onComplete={handleCroppingComplete} onCancel={() => setCroppingStep(false)} />
+    }
+
+    if (termsStep) {
+        return (
+            <Card className="bg-[#1a0d2e]/90 border-purple-900">
+                <CardContent className="p-6 sm:p-8 md:p-12">
+                    <h2 className="text-2xl font-bold text-white mb-6">Terms of Service & Privacy Policy</h2>
+                    <p className="text-purple-200 mb-6">
+                        Before we create your coloring book, please review and accept our Terms of Service and Privacy Policy.
+                    </p>
+                    
+                    <div className="space-y-6 sm:space-y-4 mb-8">
+                        <div className="flex items-start space-x-3 sm:space-x-3">
+                            <Checkbox 
+                                id="terms" 
+                                checked={agreedToTerms}
+                                onCheckedChange={(checked) => setAgreedToTerms(checked === true)}
+                                className="mt-1"
+                            />
+                            <Label htmlFor="terms" className="text-purple-200 cursor-pointer leading-relaxed">
+                                I have read and agree to the{' '}
+                                <Link href="/terms" target="_blank" className="text-purple-300 hover:text-purple-100 underline">
+                                    Terms of Service
+                                </Link>
+                            </Label>
+                        </div>
+                        <div className="flex items-start space-x-3 sm:space-x-3">
+                            <Checkbox 
+                                id="privacy" 
+                                checked={agreedToPrivacy}
+                                onCheckedChange={(checked) => setAgreedToPrivacy(checked === true)}
+                                className="mt-1"
+                            />
+                            <Label htmlFor="privacy" className="text-purple-200 cursor-pointer leading-relaxed">
+                                I have read and agree to the{' '}
+                                <Link href="/privacy" target="_blank" className="text-purple-300 hover:text-purple-100 underline">
+                                    Privacy Policy
+                                </Link>
+                            </Label>
+                        </div>
+                    </div>
+
+                    <div className="flex flex-col sm:flex-row gap-3 justify-end">
+                        <Button 
+                            variant="outline" 
+                            onClick={() => {
+                                setTermsStep(false);
+                                setCroppingStep(true);
+                            }}
+                            className="w-full sm:w-auto"
+                        >
+                            Back
+                        </Button>
+                        <Button 
+                            onClick={() => handleTermsAcceptance()}
+                            disabled={!agreedToTerms || !agreedToPrivacy}
+                            size="lg"
+                            className="w-full sm:w-auto"
+                        >
+                            <Wand2 className="mr-2 h-4 w-4" />
+                            Agree & Create Coloring Book
+                        </Button>
+                    </div>
+                </CardContent>
+            </Card>
+        );
     }
     
     return (
