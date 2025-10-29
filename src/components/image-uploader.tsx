@@ -215,7 +215,7 @@ export function ImageUploader() {
     }
     
     return (
-        <Card>
+        <Card className="bg-[#1a0d2e]/90 border-purple-900">
             <CardContent className="p-6">
                 <div
                     onDragEnter={onDragEnter}
@@ -223,7 +223,7 @@ export function ImageUploader() {
                     onDragOver={onDragOver}
                     onDrop={onDrop}
                     className={`border-2 border-dashed rounded-lg p-8 text-center transition-colors duration-200
-                    ${isDragging ? 'border-primary bg-primary/10' : 'border-border'}`}
+                    ${isDragging ? 'border-purple-300 bg-purple-700/30' : 'border-purple-600'}`}
                 >
                     <input
                         type="file"
@@ -234,19 +234,19 @@ export function ImageUploader() {
                         className="hidden"
                     />
                     <label htmlFor="file-upload" className="cursor-pointer">
-                        <UploadCloud className="mx-auto h-12 w-12 text-muted-foreground" />
-                        <p className="mt-4 text-muted-foreground">
-                            <span className="font-semibold text-primary">
+                        <UploadCloud className="mx-auto h-12 w-12 text-purple-200" />
+                        <p className="mt-4 text-purple-100">
+                            <span className="font-semibold text-purple-200">
                                 {isAddingMorePhotos ? "Click to add more photos" : "Click to upload photos"}
                             </span> or drag and drop
                         </p>
-                        <p className="text-xs text-muted-foreground">PNG, JPG, HEIC, etc.</p>
+                        <p className="text-xs text-purple-300">PNG, JPG, HEIC, etc.</p>
                     </label>
                 </div>
 
                 {files.length > 0 && (
                     <div className="mt-6">
-                        <h3 className="font-semibold mb-4">
+                        <h3 className="font-semibold mb-4 text-white">
                             {isAddingMorePhotos ? "Additional Photos" : "Your Photos"} ({files.length})
                         </h3>
                         <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4">
@@ -260,7 +260,7 @@ export function ImageUploader() {
                                     />
                                     <button
                                         onClick={() => removeFile(index)}
-                                        className="absolute top-1 right-1 bg-background/70 text-foreground rounded-full p-1 opacity-0 group-hover:opacity-100 transition-opacity"
+                                        className="absolute top-1 right-1 bg-purple-900/80 text-white rounded-full p-1 opacity-0 group-hover:opacity-100 transition-opacity"
                                         aria-label="Remove image"
                                     >
                                         <X className="h-4 w-4" />
@@ -279,11 +279,11 @@ export function ImageUploader() {
                         </div> */}
                         <div className="grid gap-2 w-full max-w-sm">
                              <div className="flex justify-between items-center">
-                                <Label htmlFor="difficulty-slider">Level of Detail: {difficultyLabels[difficulty]}</Label>
-                                <span className='text-sm font-medium text-muted-foreground bg-muted px-2 py-1 rounded-md'>{difficulty}</span>
+                                <Label htmlFor="difficulty-slider" className="text-white">Level of Detail: {difficultyLabels[difficulty]}</Label>
+                                <span className='text-sm font-medium text-purple-200 bg-purple-700/50 px-2 py-1 rounded-md'>{difficulty}</span>
                             </div>
                             <div className="flex items-center gap-4">
-                                <span className="text-sm text-muted-foreground">Very Simple</span>
+                                <span className="text-sm text-purple-200">Very Simple</span>
                                 <div className="flex-1 relative difficulty-tooltip-container">
                                     <Slider
                                         id="difficulty-slider"
@@ -362,7 +362,7 @@ export function ImageUploader() {
                                         </div>
                                     )}
                                 </div>
-                                <span className="text-sm text-muted-foreground">Very Detailed</span>
+                                <span className="text-sm text-purple-200">Very Detailed</span>
                             </div>
                         </div>
                     </div>

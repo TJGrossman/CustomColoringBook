@@ -40,14 +40,14 @@ export default function PasswordPage() {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gray-50 py-12 px-4 sm:px-6 lg:px-8">
+    <div className="min-h-screen flex items-center justify-center bg-[#2d1b4e] py-12 px-4 sm:px-6 lg:px-8">
       <div className="max-w-md w-full space-y-8">
         <div className="text-center">
-          <Lock className="mx-auto h-12 w-12 text-gray-400" />
-          <h2 className="mt-6 text-3xl font-extrabold text-gray-900">
+          <Lock className="mx-auto h-12 w-12 text-purple-300" />
+          <h2 className="mt-6 text-3xl font-extrabold text-white">
             Site Access Required
           </h2>
-          <p className="mt-2 text-sm text-gray-600">
+          <p className="mt-2 text-sm text-purple-200">
             Please enter the password to access ColoringPics
           </p>
         </div>

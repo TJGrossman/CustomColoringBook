@@ -118,7 +118,7 @@ export function ImagePreviewGrid({ images: initialImages, style, difficulty, onS
     return (
         <div>
              <div className="flex flex-col sm:flex-row justify-between items-center mb-8 gap-4">
-                <h2 className="text-2xl font-bold text-center sm:text-left">Coloring Book Preview</h2>
+                <h2 className="text-2xl font-bold text-center sm:text-left text-white">Coloring Book Preview</h2>
                 <div className="flex items-center gap-2 flex-wrap justify-center">
                      <Button onClick={onStartOver} variant="outline">
                         <RefreshCw className="mr-2 h-4 w-4" />

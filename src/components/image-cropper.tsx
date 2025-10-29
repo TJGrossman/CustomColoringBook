@@ -183,9 +183,9 @@ export function ImageCropper({ images, onComplete, onCancel }: ImageCropperProps
     const PAPER_ASPECT = 8.5 / 11;
 
     return (
-        <Card className="w-full max-w-2xl mx-auto">
+        <Card className="w-full max-w-2xl mx-auto bg-[#1a0d2e]/90 border-purple-900">
             <CardHeader>
-                <CardTitle>Crop Your Images (Step {currentIndex + 1} of {images.length})</CardTitle>
+                <CardTitle className="text-white">Crop Your Images (Step {currentIndex + 1} of {images.length})</CardTitle>
             </CardHeader>
             <CardContent className="p-0 sm:p-6 sm:pt-0">
                  <div className="relative w-full max-w-[314px] sm:max-w-md mx-auto bg-muted rounded-lg overflow-hidden">
@@ -212,7 +212,7 @@ export function ImageCropper({ images, onComplete, onCancel }: ImageCropperProps
                 <div className="space-y-4 mt-4 px-4 sm:px-0">
                      <div className="grid grid-cols-1 gap-4 items-center">
                         <div className="space-y-2">
-                            <label htmlFor="zoom" className="block text-sm font-medium text-muted-foreground">Zoom</label>
+                            <label htmlFor="zoom" className="block text-sm font-medium text-purple-200">Zoom</label>
                             <Slider
                                 id="zoom"
                                 min={1}
