@@ -155,17 +155,8 @@ export function ImagePreviewGrid({ images: initialImages, style, difficulty, onS
             </div>
 
             <Dialog open={previewIndex !== null} onOpenChange={(isOpen) => !isOpen && setPreviewIndex(null)}>
-                <DialogContent className={`${isMobile ? 'w-screen h-screen max-w-none max-h-none m-0 rounded-none' : 'max-w-6xl w-[95vw] max-h-[95vh]'} p-0 bg-secondary flex flex-col justify-center items-center relative`}>
+                <DialogContent className={`${isMobile ? 'w-screen h-[90vh] max-w-none max-h-none m-0 rounded-none' : 'max-w-6xl w-[95vw] max-h-[95vh]'} p-0 bg-secondary flex flex-col justify-center items-center`}>
                     <DialogTitle className="sr-only">Coloring Book Preview</DialogTitle>
-                    {isMobile && (
-                        <Button
-                            onClick={() => setPreviewIndex(null)}
-                            className="absolute top-4 right-4 z-10 bg-background/80 hover:bg-background text-foreground"
-                            size="sm"
-                        >
-                            <X className="h-4 w-4" />
-                        </Button>
-                    )}
                     {previewIndex !== null && (
                         <Carousel 
                             opts={{ startIndex: previewIndex, loop: true }} 
@@ -173,14 +164,14 @@ export function ImagePreviewGrid({ images: initialImages, style, difficulty, onS
                         >
                             <CarouselContent className="h-full">
                                 {images.map((image, index) => (
-                                    <CarouselItem key={index} className="h-full flex flex-col items-center justify-start p-2 sm:p-4">
+                                    <CarouselItem key={index} className="h-full flex flex-col items-center justify-start p-1 sm:p-4">
                                         <div className="text-center mb-2">
                                             <p className="text-sm sm:text-lg font-semibold">Page {index + 1} of {images.length}</p>
                                             {isMobile && images.length > 1 && (
                                                 <p className="text-xs text-muted-foreground mt-1">Swipe to navigate</p>
                                             )}
                                         </div>
-                                        <div className={`relative w-full aspect-[8.5/11] shadow-lg rounded-md overflow-hidden bg-white mx-auto flex-shrink-0 ${isMobile ? 'max-w-[90vw]' : 'max-w-[500px]'}`}>
+                                        <div className={`relative w-full aspect-[8.5/11] shadow-lg rounded-md overflow-hidden bg-white mx-auto flex-shrink-0 ${isMobile ? 'max-w-[80vw]' : 'max-w-[500px]'}`}>
                                             <Image
                                                 src={image.converted}
                                                 alt={`Coloring page ${index + 1}`}
@@ -189,7 +180,7 @@ export function ImagePreviewGrid({ images: initialImages, style, difficulty, onS
                                                 sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                                             />
                                         </div>
-                                        <div className="flex flex-col items-center gap-2 mt-2 w-full max-w-sm px-2">
+                                        <div className="flex flex-col items-center gap-1 mt-1 w-full max-w-sm px-2 sm:gap-2 sm:mt-2">
                                              <div className="grid w-full gap-1" onClick={(e) => e.stopPropagation()}>
                                                 <Label htmlFor="notes" className="text-xs sm:text-sm">Regeneration Notes (Optional)</Label>
                                                 <Textarea 
@@ -198,7 +189,7 @@ export function ImagePreviewGrid({ images: initialImages, style, difficulty, onS
                                                     value={userNotes}
                                                     onChange={(e) => setUserNotes(e.target.value)}
                                                     onClick={(e) => e.stopPropagation()}
-                                                    className="min-h-[50px] text-xs sm:text-sm"
+                                                    className="min-h-[40px] sm:min-h-[50px] text-xs sm:text-sm"
                                                 />
                                             </div>
                                             <div className="flex gap-2 w-full" onClick={(e) => e.stopPropagation()}>

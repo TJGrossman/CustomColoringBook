@@ -808,6 +808,10 @@ h1, h2, h3, h4, h5, h6 {
   min-height: 50px;
 }
 
+.min-h-\[40px\] {
+  min-height: 40px;
+}
+
 .w-0 {
   width: 0;
 }
@@ -970,6 +974,10 @@ h1, h2, h3, h4, h5, h6 {
 
 .max-w-\[90vw\] {
   max-width: 90vw;
+}
+
+.max-w-\[80vw\] {
+  max-width: 80vw;
 }
 
 .flex-1 {
@@ -2657,6 +2665,10 @@ h1, h2, h3, h4, h5, h6 {
     margin-right: .5rem;
   }
 
+  .sm\:mt-2 {
+    margin-top: .5rem;
+  }
+
   .sm\:inline {
     display: inline;
   }
@@ -2671,6 +2683,10 @@ h1, h2, h3, h4, h5, h6 {
 
   .sm\:h-4 {
     height: 1rem;
+  }
+
+  .sm\:min-h-\[50px\] {
+    min-height: 50px;
   }
 
   .sm\:w-4 {
@@ -2707,6 +2723,10 @@ h1, h2, h3, h4, h5, h6 {
 
   .sm\:gap-8 {
     gap: 2rem;
+  }
+
+  .sm\:gap-2 {
+    gap: .5rem;
   }
 
   .sm\:space-x-2 > :not([hidden]) ~ :not([hidden]) {
