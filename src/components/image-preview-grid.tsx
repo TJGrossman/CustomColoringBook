@@ -5,7 +5,7 @@ import { useState } from 'react';
 import Image from 'next/image';
 import { Card, CardContent } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
-import { RefreshCw, Loader2, Printer, X, Copy } from 'lucide-react';
+import { RefreshCw, Loader2, Printer, X, Copy, Plus } from 'lucide-react';
 import { useToast } from '@/hooks/use-toast';
 import { regenerateIndividualImage } from '@/ai/flows/regenerate-individual-image';
 import { GenerateColoringBookImagesInput } from '@/ai/flows/generate-coloring-book-images';
@@ -31,9 +31,10 @@ type ImagePreviewGridProps = {
     style: GenerateColoringBookImagesInput['style'];
     difficulty: number;
     onStartOver: () => void;
+    onAddMorePhotos: () => void;
 };
 
-export function ImagePreviewGrid({ images: initialImages, style, difficulty, onStartOver }: ImagePreviewGridProps) {
+export function ImagePreviewGrid({ images: initialImages, style, difficulty, onStartOver, onAddMorePhotos }: ImagePreviewGridProps) {
     const [images, setImages] = useState(initialImages);
     const [loadingStates, setLoadingStates] = useState<Record<number, boolean>>({});
     const [previewIndex, setPreviewIndex] = useState<number | null>(null);
@@ -120,6 +121,10 @@ export function ImagePreviewGrid({ images: initialImages, style, difficulty, onS
                      <Button onClick={onStartOver} variant="outline">
                         <RefreshCw className="mr-2 h-4 w-4" />
                         Start Over
+                    </Button>
+                    <Button onClick={onAddMorePhotos} variant="outline">
+                        <Plus className="mr-2 h-4 w-4" />
+                        Add More Photos
                     </Button>
                     <Button onClick={handlePrint}>
                         <Printer className="mr-2 h-4 w-4" />

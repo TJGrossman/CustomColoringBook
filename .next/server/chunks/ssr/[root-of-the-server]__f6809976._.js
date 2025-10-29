@@ -646,6 +646,7 @@ var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$re
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$loader$2d$circle$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__$3c$export__default__as__Loader2$3e$__ = __turbopack_context__.i("[project]/node_modules/lucide-react/dist/esm/icons/loader-circle.js [app-ssr] (ecmascript) <export default as Loader2>");
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$printer$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__$3c$export__default__as__Printer$3e$__ = __turbopack_context__.i("[project]/node_modules/lucide-react/dist/esm/icons/printer.js [app-ssr] (ecmascript) <export default as Printer>");
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$copy$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__$3c$export__default__as__Copy$3e$__ = __turbopack_context__.i("[project]/node_modules/lucide-react/dist/esm/icons/copy.js [app-ssr] (ecmascript) <export default as Copy>");
+var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$plus$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__$3c$export__default__as__Plus$3e$__ = __turbopack_context__.i("[project]/node_modules/lucide-react/dist/esm/icons/plus.js [app-ssr] (ecmascript) <export default as Plus>");
 var __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$hooks$2f$use$2d$toast$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/src/hooks/use-toast.ts [app-ssr] (ecmascript)");
 var __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$ai$2f$flows$2f$data$3a$c7d147__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__$3c$text$2f$javascript$3e$__ = __turbopack_context__.i("[project]/src/ai/flows/data:c7d147 [app-ssr] (ecmascript) <text/javascript>");
 var __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$carousel$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/src/components/ui/carousel.tsx [app-ssr] (ecmascript)");
@@ -667,7 +668,7 @@ var __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$lib$2f$clipboard$2e$t
 ;
 ;
 ;
-function ImagePreviewGrid({ images: initialImages, style, difficulty, onStartOver }) {
+function ImagePreviewGrid({ images: initialImages, style, difficulty, onStartOver, onAddMorePhotos }) {
     const [images, setImages] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useState"])(initialImages);
     const [loadingStates, setLoadingStates] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useState"])({});
     const [previewIndex, setPreviewIndex] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useState"])(null);
@@ -768,7 +769,7 @@ function ImagePreviewGrid({ images: initialImages, style, difficulty, onStartOve
                         children: "Your Coloring Book Preview"
                     }, void 0, false, {
                         fileName: "[project]/src/components/image-preview-grid.tsx",
-                        lineNumber: 118,
+                        lineNumber: 119,
                         columnNumber: 17
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -782,15 +783,33 @@ function ImagePreviewGrid({ images: initialImages, style, difficulty, onStartOve
                                         className: "mr-2 h-4 w-4"
                                     }, void 0, false, {
                                         fileName: "[project]/src/components/image-preview-grid.tsx",
-                                        lineNumber: 121,
+                                        lineNumber: 122,
                                         columnNumber: 25
                                     }, this),
                                     "Start Over"
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/src/components/image-preview-grid.tsx",
-                                lineNumber: 120,
+                                lineNumber: 121,
                                 columnNumber: 22
+                            }, this),
+                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$button$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Button"], {
+                                onClick: onAddMorePhotos,
+                                variant: "outline",
+                                children: [
+                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$plus$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__$3c$export__default__as__Plus$3e$__["Plus"], {
+                                        className: "mr-2 h-4 w-4"
+                                    }, void 0, false, {
+                                        fileName: "[project]/src/components/image-preview-grid.tsx",
+                                        lineNumber: 126,
+                                        columnNumber: 25
+                                    }, this),
+                                    "Add More Photos"
+                                ]
+                            }, void 0, true, {
+                                fileName: "[project]/src/components/image-preview-grid.tsx",
+                                lineNumber: 125,
+                                columnNumber: 21
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$button$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Button"], {
                                 onClick: handlePrint,
@@ -799,26 +818,26 @@ function ImagePreviewGrid({ images: initialImages, style, difficulty, onStartOve
                                         className: "mr-2 h-4 w-4"
                                     }, void 0, false, {
                                         fileName: "[project]/src/components/image-preview-grid.tsx",
-                                        lineNumber: 125,
+                                        lineNumber: 130,
                                         columnNumber: 25
                                     }, this),
                                     "Download Book"
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/src/components/image-preview-grid.tsx",
-                                lineNumber: 124,
+                                lineNumber: 129,
                                 columnNumber: 21
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/src/components/image-preview-grid.tsx",
-                        lineNumber: 119,
+                        lineNumber: 120,
                         columnNumber: 17
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "[project]/src/components/image-preview-grid.tsx",
-                lineNumber: 117,
+                lineNumber: 118,
                 columnNumber: 14
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -838,7 +857,7 @@ function ImagePreviewGrid({ images: initialImages, style, difficulty, onStartOve
                                         className: "object-cover bg-white"
                                     }, void 0, false, {
                                         fileName: "[project]/src/components/image-preview-grid.tsx",
-                                        lineNumber: 135,
+                                        lineNumber: 140,
                                         columnNumber: 33
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -848,33 +867,33 @@ function ImagePreviewGrid({ images: initialImages, style, difficulty, onStartOve
                                             children: "View"
                                         }, void 0, false, {
                                             fileName: "[project]/src/components/image-preview-grid.tsx",
-                                            lineNumber: 142,
+                                            lineNumber: 147,
                                             columnNumber: 37
                                         }, this)
                                     }, void 0, false, {
                                         fileName: "[project]/src/components/image-preview-grid.tsx",
-                                        lineNumber: 141,
+                                        lineNumber: 146,
                                         columnNumber: 34
                                     }, this)
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/src/components/image-preview-grid.tsx",
-                                lineNumber: 134,
+                                lineNumber: 139,
                                 columnNumber: 29
                             }, this)
                         }, void 0, false, {
                             fileName: "[project]/src/components/image-preview-grid.tsx",
-                            lineNumber: 133,
+                            lineNumber: 138,
                             columnNumber: 25
                         }, this)
                     }, index, false, {
                         fileName: "[project]/src/components/image-preview-grid.tsx",
-                        lineNumber: 132,
+                        lineNumber: 137,
                         columnNumber: 21
                     }, this))
             }, void 0, false, {
                 fileName: "[project]/src/components/image-preview-grid.tsx",
-                lineNumber: 130,
+                lineNumber: 135,
                 columnNumber: 13
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$dialog$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Dialog"], {
@@ -888,7 +907,7 @@ function ImagePreviewGrid({ images: initialImages, style, difficulty, onStartOve
                             children: "Coloring Book Preview"
                         }, void 0, false, {
                             fileName: "[project]/src/components/image-preview-grid.tsx",
-                            lineNumber: 152,
+                            lineNumber: 157,
                             columnNumber: 21
                         }, this),
                         previewIndex !== null && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$carousel$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Carousel"], {
@@ -915,12 +934,12 @@ function ImagePreviewGrid({ images: initialImages, style, difficulty, onStartOve
                                                         ]
                                                     }, void 0, true, {
                                                         fileName: "[project]/src/components/image-preview-grid.tsx",
-                                                        lineNumber: 162,
+                                                        lineNumber: 167,
                                                         columnNumber: 45
                                                     }, this)
                                                 }, void 0, false, {
                                                     fileName: "[project]/src/components/image-preview-grid.tsx",
-                                                    lineNumber: 161,
+                                                    lineNumber: 166,
                                                     columnNumber: 41
                                                 }, this),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -933,12 +952,12 @@ function ImagePreviewGrid({ images: initialImages, style, difficulty, onStartOve
                                                         sizes: "(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                                                     }, void 0, false, {
                                                         fileName: "[project]/src/components/image-preview-grid.tsx",
-                                                        lineNumber: 165,
+                                                        lineNumber: 170,
                                                         columnNumber: 45
                                                     }, this)
                                                 }, void 0, false, {
                                                     fileName: "[project]/src/components/image-preview-grid.tsx",
-                                                    lineNumber: 164,
+                                                    lineNumber: 169,
                                                     columnNumber: 41
                                                 }, this),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -953,7 +972,7 @@ function ImagePreviewGrid({ images: initialImages, style, difficulty, onStartOve
                                                                     children: "Regeneration Notes (Optional)"
                                                                 }, void 0, false, {
                                                                     fileName: "[project]/src/components/image-preview-grid.tsx",
-                                                                    lineNumber: 175,
+                                                                    lineNumber: 180,
                                                                     columnNumber: 49
                                                                 }, this),
                                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$textarea$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Textarea"], {
@@ -964,13 +983,13 @@ function ImagePreviewGrid({ images: initialImages, style, difficulty, onStartOve
                                                                     className: "min-h-[50px] text-xs sm:text-sm"
                                                                 }, void 0, false, {
                                                                     fileName: "[project]/src/components/image-preview-grid.tsx",
-                                                                    lineNumber: 176,
+                                                                    lineNumber: 181,
                                                                     columnNumber: 49
                                                                 }, this)
                                                             ]
                                                         }, void 0, true, {
                                                             fileName: "[project]/src/components/image-preview-grid.tsx",
-                                                            lineNumber: 174,
+                                                            lineNumber: 179,
                                                             columnNumber: 46
                                                         }, this),
                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -987,7 +1006,7 @@ function ImagePreviewGrid({ images: initialImages, style, difficulty, onStartOve
                                                                                 className: "mr-1 sm:mr-2 h-3 w-3 sm:h-4 sm:w-4 animate-spin"
                                                                             }, void 0, false, {
                                                                                 fileName: "[project]/src/components/image-preview-grid.tsx",
-                                                                                lineNumber: 193,
+                                                                                lineNumber: 198,
                                                                                 columnNumber: 61
                                                                             }, this),
                                                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -995,7 +1014,7 @@ function ImagePreviewGrid({ images: initialImages, style, difficulty, onStartOve
                                                                                 children: "Working..."
                                                                             }, void 0, false, {
                                                                                 fileName: "[project]/src/components/image-preview-grid.tsx",
-                                                                                lineNumber: 194,
+                                                                                lineNumber: 199,
                                                                                 columnNumber: 61
                                                                             }, this),
                                                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -1003,7 +1022,7 @@ function ImagePreviewGrid({ images: initialImages, style, difficulty, onStartOve
                                                                                 children: "..."
                                                                             }, void 0, false, {
                                                                                 fileName: "[project]/src/components/image-preview-grid.tsx",
-                                                                                lineNumber: 195,
+                                                                                lineNumber: 200,
                                                                                 columnNumber: 61
                                                                             }, this)
                                                                         ]
@@ -1013,7 +1032,7 @@ function ImagePreviewGrid({ images: initialImages, style, difficulty, onStartOve
                                                                                 className: "mr-1 sm:mr-2 h-3 w-3 sm:h-4 sm:w-4"
                                                                             }, void 0, false, {
                                                                                 fileName: "[project]/src/components/image-preview-grid.tsx",
-                                                                                lineNumber: 199,
+                                                                                lineNumber: 204,
                                                                                 columnNumber: 61
                                                                             }, this),
                                                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -1021,7 +1040,7 @@ function ImagePreviewGrid({ images: initialImages, style, difficulty, onStartOve
                                                                                 children: "Regenerate"
                                                                             }, void 0, false, {
                                                                                 fileName: "[project]/src/components/image-preview-grid.tsx",
-                                                                                lineNumber: 200,
+                                                                                lineNumber: 205,
                                                                                 columnNumber: 61
                                                                             }, this),
                                                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -1029,14 +1048,14 @@ function ImagePreviewGrid({ images: initialImages, style, difficulty, onStartOve
                                                                                 children: "Regen"
                                                                             }, void 0, false, {
                                                                                 fileName: "[project]/src/components/image-preview-grid.tsx",
-                                                                                lineNumber: 201,
+                                                                                lineNumber: 206,
                                                                                 columnNumber: 61
                                                                             }, this)
                                                                         ]
                                                                     }, void 0, true)
                                                                 }, void 0, false, {
                                                                     fileName: "[project]/src/components/image-preview-grid.tsx",
-                                                                    lineNumber: 185,
+                                                                    lineNumber: 190,
                                                                     columnNumber: 49
                                                                 }, this),
                                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$button$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Button"], {
@@ -1048,72 +1067,72 @@ function ImagePreviewGrid({ images: initialImages, style, difficulty, onStartOve
                                                                         className: "h-3 w-3 sm:h-4 sm:w-4"
                                                                     }, void 0, false, {
                                                                         fileName: "[project]/src/components/image-preview-grid.tsx",
-                                                                        lineNumber: 211,
+                                                                        lineNumber: 216,
                                                                         columnNumber: 53
                                                                     }, this)
                                                                 }, void 0, false, {
                                                                     fileName: "[project]/src/components/image-preview-grid.tsx",
-                                                                    lineNumber: 205,
+                                                                    lineNumber: 210,
                                                                     columnNumber: 49
                                                                 }, this)
                                                             ]
                                                         }, void 0, true, {
                                                             fileName: "[project]/src/components/image-preview-grid.tsx",
-                                                            lineNumber: 184,
+                                                            lineNumber: 189,
                                                             columnNumber: 45
                                                         }, this)
                                                     ]
                                                 }, void 0, true, {
                                                     fileName: "[project]/src/components/image-preview-grid.tsx",
-                                                    lineNumber: 173,
+                                                    lineNumber: 178,
                                                     columnNumber: 41
                                                 }, this)
                                             ]
                                         }, index, true, {
                                             fileName: "[project]/src/components/image-preview-grid.tsx",
-                                            lineNumber: 160,
+                                            lineNumber: 165,
                                             columnNumber: 37
                                         }, this))
                                 }, void 0, false, {
                                     fileName: "[project]/src/components/image-preview-grid.tsx",
-                                    lineNumber: 158,
+                                    lineNumber: 163,
                                     columnNumber: 29
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$carousel$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["CarouselPrevious"], {
                                     className: "absolute left-4 top-1/2 -translate-y-1/2"
                                 }, void 0, false, {
                                     fileName: "[project]/src/components/image-preview-grid.tsx",
-                                    lineNumber: 218,
+                                    lineNumber: 223,
                                     columnNumber: 29
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$carousel$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["CarouselNext"], {
                                     className: "absolute right-4 top-1/2 -translate-y-1/2"
                                 }, void 0, false, {
                                     fileName: "[project]/src/components/image-preview-grid.tsx",
-                                    lineNumber: 219,
+                                    lineNumber: 224,
                                     columnNumber: 29
                                 }, this)
                             ]
                         }, void 0, true, {
                             fileName: "[project]/src/components/image-preview-grid.tsx",
-                            lineNumber: 154,
+                            lineNumber: 159,
                             columnNumber: 25
                         }, this)
                     ]
                 }, void 0, true, {
                     fileName: "[project]/src/components/image-preview-grid.tsx",
-                    lineNumber: 151,
+                    lineNumber: 156,
                     columnNumber: 17
                 }, this)
             }, void 0, false, {
                 fileName: "[project]/src/components/image-preview-grid.tsx",
-                lineNumber: 150,
+                lineNumber: 155,
                 columnNumber: 13
             }, this)
         ]
     }, void 0, true, {
         fileName: "[project]/src/components/image-preview-grid.tsx",
-        lineNumber: 116,
+        lineNumber: 117,
         columnNumber: 9
     }, this);
 }
@@ -1607,6 +1626,7 @@ function ImageUploader() {
     const [style, setStyle] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useState"])('outline');
     const [difficulty, setDifficulty] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useState"])(3);
     const [croppingStep, setCroppingStep] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useState"])(false);
+    const [isAddingMorePhotos, setIsAddingMorePhotos] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useState"])(false);
     const difficultyLabels = {
         1: 'Very Easy',
         2: 'Easy',
@@ -1669,6 +1689,11 @@ function ImageUploader() {
         setConvertedImages([]);
         setIsSubmitting(false);
         setCroppingStep(false);
+        setIsAddingMorePhotos(false);
+    };
+    const handleAddMorePhotos = ()=>{
+        setIsAddingMorePhotos(true);
+        setFiles([]);
     };
     const handleCroppingComplete = async (croppedImageUris)=>{
         setIsSubmitting(true);
@@ -1690,11 +1715,25 @@ function ImageUploader() {
                     original: originalUri,
                     converted: coloringBookDataUris[index]
                 }));
-            setConvertedImages(newConvertedImages);
-            toast({
-                title: "Coloring Book Created!",
-                description: "Your images have been converted into a coloring book."
-            });
+            if (isAddingMorePhotos) {
+                // Add new images to existing ones
+                setConvertedImages((prev)=>[
+                        ...prev,
+                        ...newConvertedImages
+                    ]);
+                toast({
+                    title: "Photos Added!",
+                    description: `${newConvertedImages.length} new images have been added to your coloring book.`
+                });
+                setIsAddingMorePhotos(false);
+            } else {
+                // Replace all images (first time)
+                setConvertedImages(newConvertedImages);
+                toast({
+                    title: "Coloring Book Created!",
+                    description: "Your images have been converted into a coloring book."
+                });
+            }
             setFiles([]);
         } catch (error) {
             console.error(error);
@@ -1711,21 +1750,22 @@ function ImageUploader() {
         }
     };
     const isButtonDisabled = isSubmitting || files.length === 0;
-    if (convertedImages.length > 0) {
+    if (convertedImages.length > 0 && !isAddingMorePhotos) {
         return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
             children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$image$2d$preview$2d$grid$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["ImagePreviewGrid"], {
                 images: convertedImages,
                 style: style,
                 difficulty: difficulty,
-                onStartOver: handleReset
+                onStartOver: handleReset,
+                onAddMorePhotos: handleAddMorePhotos
             }, void 0, false, {
                 fileName: "[project]/src/components/image-uploader.tsx",
-                lineNumber: 158,
+                lineNumber: 173,
                 columnNumber: 17
             }, this)
         }, void 0, false, {
             fileName: "[project]/src/components/image-uploader.tsx",
-            lineNumber: 157,
+            lineNumber: 172,
             columnNumber: 13
         }, this);
     }
@@ -1736,7 +1776,7 @@ function ImageUploader() {
             onCancel: ()=>setCroppingStep(false)
         }, void 0, false, {
             fileName: "[project]/src/components/image-uploader.tsx",
-            lineNumber: 164,
+            lineNumber: 185,
             columnNumber: 16
         }, this);
     }
@@ -1761,7 +1801,7 @@ function ImageUploader() {
                             className: "hidden"
                         }, void 0, false, {
                             fileName: "[project]/src/components/image-uploader.tsx",
-                            lineNumber: 178,
+                            lineNumber: 199,
                             columnNumber: 21
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("label", {
@@ -1772,7 +1812,7 @@ function ImageUploader() {
                                     className: "mx-auto h-12 w-12 text-muted-foreground"
                                 }, void 0, false, {
                                     fileName: "[project]/src/components/image-uploader.tsx",
-                                    lineNumber: 187,
+                                    lineNumber: 208,
                                     columnNumber: 25
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -1780,17 +1820,17 @@ function ImageUploader() {
                                     children: [
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
                                             className: "font-semibold text-primary",
-                                            children: "Click to upload photos"
+                                            children: isAddingMorePhotos ? "Click to add more photos" : "Click to upload photos"
                                         }, void 0, false, {
                                             fileName: "[project]/src/components/image-uploader.tsx",
-                                            lineNumber: 189,
+                                            lineNumber: 210,
                                             columnNumber: 29
                                         }, this),
                                         " or drag and drop"
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/src/components/image-uploader.tsx",
-                                    lineNumber: 188,
+                                    lineNumber: 209,
                                     columnNumber: 25
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -1798,19 +1838,19 @@ function ImageUploader() {
                                     children: "PNG, JPG, HEIC, etc."
                                 }, void 0, false, {
                                     fileName: "[project]/src/components/image-uploader.tsx",
-                                    lineNumber: 191,
+                                    lineNumber: 214,
                                     columnNumber: 25
                                 }, this)
                             ]
                         }, void 0, true, {
                             fileName: "[project]/src/components/image-uploader.tsx",
-                            lineNumber: 186,
+                            lineNumber: 207,
                             columnNumber: 21
                         }, this)
                     ]
                 }, void 0, true, {
                     fileName: "[project]/src/components/image-uploader.tsx",
-                    lineNumber: 170,
+                    lineNumber: 191,
                     columnNumber: 17
                 }, this),
                 files.length > 0 && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1819,13 +1859,14 @@ function ImageUploader() {
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("h3", {
                             className: "font-semibold mb-4",
                             children: [
-                                "Your Photos (",
+                                isAddingMorePhotos ? "Additional Photos" : "Your Photos",
+                                " (",
                                 files.length,
                                 ")"
                             ]
                         }, void 0, true, {
                             fileName: "[project]/src/components/image-uploader.tsx",
-                            lineNumber: 197,
+                            lineNumber: 220,
                             columnNumber: 25
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1840,7 +1881,7 @@ function ImageUploader() {
                                             className: "object-cover rounded-md"
                                         }, void 0, false, {
                                             fileName: "[project]/src/components/image-uploader.tsx",
-                                            lineNumber: 201,
+                                            lineNumber: 226,
                                             columnNumber: 37
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
@@ -1851,29 +1892,29 @@ function ImageUploader() {
                                                 className: "h-4 w-4"
                                             }, void 0, false, {
                                                 fileName: "[project]/src/components/image-uploader.tsx",
-                                                lineNumber: 212,
+                                                lineNumber: 237,
                                                 columnNumber: 41
                                             }, this)
                                         }, void 0, false, {
                                             fileName: "[project]/src/components/image-uploader.tsx",
-                                            lineNumber: 207,
+                                            lineNumber: 232,
                                             columnNumber: 37
                                         }, this)
                                     ]
                                 }, index, true, {
                                     fileName: "[project]/src/components/image-uploader.tsx",
-                                    lineNumber: 200,
+                                    lineNumber: 225,
                                     columnNumber: 33
                                 }, this))
                         }, void 0, false, {
                             fileName: "[project]/src/components/image-uploader.tsx",
-                            lineNumber: 198,
+                            lineNumber: 223,
                             columnNumber: 25
                         }, this)
                     ]
                 }, void 0, true, {
                     fileName: "[project]/src/components/image-uploader.tsx",
-                    lineNumber: 196,
+                    lineNumber: 219,
                     columnNumber: 21
                 }, this),
                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1891,7 +1932,7 @@ function ImageUploader() {
                                             onCheckedChange: (checked)=>setStyle(checked ? 'realistic' : 'outline')
                                         }, void 0, false, {
                                             fileName: "[project]/src/components/image-uploader.tsx",
-                                            lineNumber: 223,
+                                            lineNumber: 248,
                                             columnNumber: 29
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$label$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Label"], {
@@ -1899,13 +1940,13 @@ function ImageUploader() {
                                             children: "Realistic Style"
                                         }, void 0, false, {
                                             fileName: "[project]/src/components/image-uploader.tsx",
-                                            lineNumber: 224,
+                                            lineNumber: 249,
                                             columnNumber: 29
                                         }, this)
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/src/components/image-uploader.tsx",
-                                    lineNumber: 222,
+                                    lineNumber: 247,
                                     columnNumber: 25
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1922,7 +1963,7 @@ function ImageUploader() {
                                                     ]
                                                 }, void 0, true, {
                                                     fileName: "[project]/src/components/image-uploader.tsx",
-                                                    lineNumber: 228,
+                                                    lineNumber: 253,
                                                     columnNumber: 33
                                                 }, this),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -1930,13 +1971,13 @@ function ImageUploader() {
                                                     children: difficulty
                                                 }, void 0, false, {
                                                     fileName: "[project]/src/components/image-uploader.tsx",
-                                                    lineNumber: 229,
+                                                    lineNumber: 254,
                                                     columnNumber: 33
                                                 }, this)
                                             ]
                                         }, void 0, true, {
                                             fileName: "[project]/src/components/image-uploader.tsx",
-                                            lineNumber: 227,
+                                            lineNumber: 252,
                                             columnNumber: 30
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1947,7 +1988,7 @@ function ImageUploader() {
                                                     children: "Very Easy"
                                                 }, void 0, false, {
                                                     fileName: "[project]/src/components/image-uploader.tsx",
-                                                    lineNumber: 232,
+                                                    lineNumber: 257,
                                                     columnNumber: 33
                                                 }, this),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$slider$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Slider"], {
@@ -1961,7 +2002,7 @@ function ImageUploader() {
                                                     onValueChange: (value)=>setDifficulty(value[0])
                                                 }, void 0, false, {
                                                     fileName: "[project]/src/components/image-uploader.tsx",
-                                                    lineNumber: 233,
+                                                    lineNumber: 258,
                                                     columnNumber: 33
                                                 }, this),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -1969,81 +2010,93 @@ function ImageUploader() {
                                                     children: "Very Difficult"
                                                 }, void 0, false, {
                                                     fileName: "[project]/src/components/image-uploader.tsx",
-                                                    lineNumber: 241,
+                                                    lineNumber: 266,
                                                     columnNumber: 33
                                                 }, this)
                                             ]
                                         }, void 0, true, {
                                             fileName: "[project]/src/components/image-uploader.tsx",
-                                            lineNumber: 231,
+                                            lineNumber: 256,
                                             columnNumber: 29
                                         }, this)
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/src/components/image-uploader.tsx",
-                                    lineNumber: 226,
+                                    lineNumber: 251,
                                     columnNumber: 25
                                 }, this)
                             ]
                         }, void 0, true, {
                             fileName: "[project]/src/components/image-uploader.tsx",
-                            lineNumber: 221,
+                            lineNumber: 246,
                             columnNumber: 21
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                            className: "flex justify-end",
-                            children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$button$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Button"], {
-                                onClick: ()=>setCroppingStep(true),
-                                disabled: isButtonDisabled,
-                                size: "lg",
-                                children: isSubmitting ? /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Fragment"], {
-                                    children: [
-                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$loader$2d$circle$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__$3c$export__default__as__Loader2$3e$__["Loader2"], {
-                                            className: "mr-2 h-4 w-4 animate-spin"
-                                        }, void 0, false, {
-                                            fileName: "[project]/src/components/image-uploader.tsx",
-                                            lineNumber: 249,
-                                            columnNumber: 37
-                                        }, this),
-                                        "Creating..."
-                                    ]
-                                }, void 0, true) : /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Fragment"], {
-                                    children: [
-                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$wand$2d$sparkles$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__$3c$export__default__as__Wand2$3e$__["Wand2"], {
-                                            className: "mr-2 h-4 w-4"
-                                        }, void 0, false, {
-                                            fileName: "[project]/src/components/image-uploader.tsx",
-                                            lineNumber: 254,
-                                            columnNumber: 37
-                                        }, this),
-                                        "Create Coloring Book"
-                                    ]
-                                }, void 0, true)
-                            }, void 0, false, {
-                                fileName: "[project]/src/components/image-uploader.tsx",
-                                lineNumber: 246,
-                                columnNumber: 26
-                            }, this)
-                        }, void 0, false, {
+                            className: `flex ${isAddingMorePhotos ? 'justify-between' : 'justify-end'}`,
+                            children: [
+                                isAddingMorePhotos && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$button$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Button"], {
+                                    onClick: ()=>setIsAddingMorePhotos(false),
+                                    variant: "outline",
+                                    size: "lg",
+                                    children: "Cancel"
+                                }, void 0, false, {
+                                    fileName: "[project]/src/components/image-uploader.tsx",
+                                    lineNumber: 272,
+                                    columnNumber: 29
+                                }, this),
+                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$button$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Button"], {
+                                    onClick: ()=>setCroppingStep(true),
+                                    disabled: isButtonDisabled,
+                                    size: "lg",
+                                    children: isSubmitting ? /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Fragment"], {
+                                        children: [
+                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$loader$2d$circle$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__$3c$export__default__as__Loader2$3e$__["Loader2"], {
+                                                className: "mr-2 h-4 w-4 animate-spin"
+                                            }, void 0, false, {
+                                                fileName: "[project]/src/components/image-uploader.tsx",
+                                                lineNumber: 279,
+                                                columnNumber: 37
+                                            }, this),
+                                            isAddingMorePhotos ? "Adding Photos..." : "Creating..."
+                                        ]
+                                    }, void 0, true) : /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Fragment"], {
+                                        children: [
+                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$wand$2d$sparkles$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__$3c$export__default__as__Wand2$3e$__["Wand2"], {
+                                                className: "mr-2 h-4 w-4"
+                                            }, void 0, false, {
+                                                fileName: "[project]/src/components/image-uploader.tsx",
+                                                lineNumber: 284,
+                                                columnNumber: 37
+                                            }, this),
+                                            isAddingMorePhotos ? "Add to Coloring Book" : "Create Coloring Book"
+                                        ]
+                                    }, void 0, true)
+                                }, void 0, false, {
+                                    fileName: "[project]/src/components/image-uploader.tsx",
+                                    lineNumber: 276,
+                                    columnNumber: 26
+                                }, this)
+                            ]
+                        }, void 0, true, {
                             fileName: "[project]/src/components/image-uploader.tsx",
-                            lineNumber: 245,
+                            lineNumber: 270,
                             columnNumber: 21
                         }, this)
                     ]
                 }, void 0, true, {
                     fileName: "[project]/src/components/image-uploader.tsx",
-                    lineNumber: 220,
+                    lineNumber: 245,
                     columnNumber: 17
                 }, this)
             ]
         }, void 0, true, {
             fileName: "[project]/src/components/image-uploader.tsx",
-            lineNumber: 169,
+            lineNumber: 190,
             columnNumber: 13
         }, this)
     }, void 0, false, {
         fileName: "[project]/src/components/image-uploader.tsx",
-        lineNumber: 168,
+        lineNumber: 189,
         columnNumber: 9
     }, this);
 }

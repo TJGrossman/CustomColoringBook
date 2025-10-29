@@ -43,6 +43,7 @@ export function ImageUploader() {
     const [style, setStyle] = useState<GenerateColoringBookImagesInput['style']>('outline');
     const [difficulty, setDifficulty] = useState(3);
     const [croppingStep, setCroppingStep] = useState(false);
+    const [isAddingMorePhotos, setIsAddingMorePhotos] = useState(false);
 
     const difficultyLabels: Record<number, string> = {
         1: 'Very Easy',
@@ -115,6 +116,12 @@ export function ImageUploader() {
         setConvertedImages([]);
         setIsSubmitting(false);
         setCroppingStep(false);
+        setIsAddingMorePhotos(false);
+    }
+
+    const handleAddMorePhotos = () => {
+        setIsAddingMorePhotos(true);
+        setFiles([]);
     }
     
     const handleCroppingComplete = async (croppedImageUris: string[]) => {
@@ -135,8 +142,16 @@ export function ImageUploader() {
                 converted: coloringBookDataUris[index]
             }));
 
-            setConvertedImages(newConvertedImages);
-            toast({ title: "Coloring Book Created!", description: "Your images have been converted into a coloring book." });
+            if (isAddingMorePhotos) {
+                // Add new images to existing ones
+                setConvertedImages(prev => [...prev, ...newConvertedImages]);
+                toast({ title: "Photos Added!", description: `${newConvertedImages.length} new images have been added to your coloring book.` });
+                setIsAddingMorePhotos(false);
+            } else {
+                // Replace all images (first time)
+                setConvertedImages(newConvertedImages);
+                toast({ title: "Coloring Book Created!", description: "Your images have been converted into a coloring book." });
+            }
             setFiles([]);
 
         } catch (error) {
@@ -152,10 +167,16 @@ export function ImageUploader() {
     
     const isButtonDisabled = isSubmitting || files.length === 0;
 
-    if (convertedImages.length > 0) {
+    if (convertedImages.length > 0 && !isAddingMorePhotos) {
         return (
             <div>
-                <ImagePreviewGrid images={convertedImages} style={style} difficulty={difficulty} onStartOver={handleReset} />
+                <ImagePreviewGrid 
+                    images={convertedImages} 
+                    style={style} 
+                    difficulty={difficulty} 
+                    onStartOver={handleReset}
+                    onAddMorePhotos={handleAddMorePhotos}
+                />
             </div>
         )
     }
@@ -186,7 +207,9 @@ export function ImageUploader() {
                     <label htmlFor="file-upload" className="cursor-pointer">
                         <UploadCloud className="mx-auto h-12 w-12 text-muted-foreground" />
                         <p className="mt-4 text-muted-foreground">
-                            <span className="font-semibold text-primary">Click to upload photos</span> or drag and drop
+                            <span className="font-semibold text-primary">
+                                {isAddingMorePhotos ? "Click to add more photos" : "Click to upload photos"}
+                            </span> or drag and drop
                         </p>
                         <p className="text-xs text-muted-foreground">PNG, JPG, HEIC, etc.</p>
                     </label>
@@ -194,7 +217,9 @@ export function ImageUploader() {
 
                 {files.length > 0 && (
                     <div className="mt-6">
-                        <h3 className="font-semibold mb-4">Your Photos ({files.length})</h3>
+                        <h3 className="font-semibold mb-4">
+                            {isAddingMorePhotos ? "Additional Photos" : "Your Photos"} ({files.length})
+                        </h3>
                         <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4">
                             {files.map((uploadedFile, index) => (
                                 <div key={index} className="relative group aspect-square">
@@ -242,17 +267,22 @@ export function ImageUploader() {
                             </div>
                         </div>
                     </div>
-                    <div className='flex justify-end'>
+                    <div className={`flex ${isAddingMorePhotos ? 'justify-between' : 'justify-end'}`}>
+                        {isAddingMorePhotos && (
+                            <Button onClick={() => setIsAddingMorePhotos(false)} variant="outline" size="lg">
+                                Cancel
+                            </Button>
+                        )}
                          <Button onClick={() => setCroppingStep(true)} disabled={isButtonDisabled} size="lg">
                             {isSubmitting ? (
                                 <>
                                     <Loader2 className="mr-2 h-4 w-4 animate-spin" />
-                                    Creating...
+                                    {isAddingMorePhotos ? "Adding Photos..." : "Creating..."}
                                 </>
                             ) : (
                                 <>
                                     <Wand2 className="mr-2 h-4 w-4" />
-                                    Create Coloring Book
+                                    {isAddingMorePhotos ? "Add to Coloring Book" : "Create Coloring Book"}
                                 </>
                             )}
                         </Button>
