@@ -118,7 +118,7 @@ export function ImagePreviewGrid({ images: initialImages, style, difficulty, onS
     return (
         <div>
              <div className="flex flex-col sm:flex-row justify-between items-center mb-8 gap-4">
-                <h2 className="text-2xl font-bold text-center sm:text-left">Your Coloring Book Preview</h2>
+                <h2 className="text-2xl font-bold text-center sm:text-left">Coloring Book Preview</h2>
                 <div className="flex items-center gap-2 flex-wrap justify-center">
                      <Button onClick={onStartOver} variant="outline">
                         <RefreshCw className="mr-2 h-4 w-4" />
@@ -127,10 +127,6 @@ export function ImagePreviewGrid({ images: initialImages, style, difficulty, onS
                     <Button onClick={onAddMorePhotos} variant="outline">
                         <Plus className="mr-2 h-4 w-4" />
                         Add More Photos
-                    </Button>
-                    <Button onClick={handlePrint}>
-                        <Printer className="mr-2 h-4 w-4" />
-                        Download Book
                     </Button>
                 </div>
             </div>
@@ -154,8 +150,21 @@ export function ImagePreviewGrid({ images: initialImages, style, difficulty, onS
                 ))}
             </div>
 
-            <Dialog open={previewIndex !== null} onOpenChange={(isOpen) => !isOpen && setPreviewIndex(null)}>
-                <DialogContent className={`${isMobile ? 'w-screen h-[80vh] max-w-none max-h-none m-0 rounded-none' : 'max-w-6xl w-[95vw] max-h-[95vh]'} p-0 bg-secondary flex flex-col justify-center items-center`}>
+            <div className="mt-8">
+                <Button onClick={handlePrint} size="lg" className="w-full sm:w-auto">
+                    <Printer className="mr-2 h-4 w-4" />
+                    Download Book
+                </Button>
+            </div>
+
+            <Dialog 
+                open={previewIndex !== null} 
+                onOpenChange={(isOpen) => !isOpen && setPreviewIndex(null)}
+            >
+                <DialogContent 
+                    className="w-screen h-screen max-w-none max-h-none m-0 rounded-none p-0 bg-secondary flex flex-col justify-center items-center [&>button]:!top-[70px] [&>button]:md:!top-4 [&>button]:!right-4 [&>button]:!z-[60] [&>button>svg]:!h-8 [&>button>svg]:!w-8"
+                    onOpenAutoFocus={(e) => e.preventDefault()}
+                >
                     <DialogTitle className="sr-only">Coloring Book Preview</DialogTitle>
                     {previewIndex !== null && (
                         <Carousel 
@@ -164,7 +173,7 @@ export function ImagePreviewGrid({ images: initialImages, style, difficulty, onS
                         >
                             <CarouselContent className="h-full">
                                 {images.map((image, index) => (
-                                    <CarouselItem key={index} className="h-full flex flex-col items-center justify-start p-1 sm:p-4">
+                                    <CarouselItem key={index} className={`h-full flex flex-col items-center justify-start p-1 sm:p-4 ${isMobile ? 'pt-20' : ''}`}>
                                         <div className="text-center mb-2">
                                             <p className="text-sm sm:text-lg font-semibold">Page {index + 1} of {images.length}</p>
                                             {isMobile && images.length > 1 && (
@@ -180,8 +189,8 @@ export function ImagePreviewGrid({ images: initialImages, style, difficulty, onS
                                                 sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                                             />
                                         </div>
-                                        <div className="flex flex-col items-center gap-1 mt-1 w-full max-w-sm px-2 sm:gap-2 sm:mt-2">
-                                             <div className="grid w-full gap-1" onClick={(e) => e.stopPropagation()}>
+                                        <div className={`flex flex-col items-center gap-6 mt-6 w-full mx-auto ${isMobile ? 'max-w-[80vw] px-0' : 'max-w-[500px] px-0'} sm:gap-8 sm:mt-8`}>
+                                             <div className="grid w-full gap-3" onClick={(e) => e.stopPropagation()}>
                                                 <Label htmlFor="notes" className="text-xs sm:text-sm">Regeneration Notes (Optional)</Label>
                                                 <Textarea 
                                                     id="notes" 
@@ -192,7 +201,7 @@ export function ImagePreviewGrid({ images: initialImages, style, difficulty, onS
                                                     className="min-h-[40px] sm:min-h-[50px] text-xs sm:text-sm"
                                                 />
                                             </div>
-                                            <div className="flex gap-2 w-full" onClick={(e) => e.stopPropagation()}>
+                                            <div className="flex gap-3 w-full" onClick={(e) => e.stopPropagation()}>
                                                 <Button
                                                     size="sm"
                                                     onClick={() => handleRegenerate(index)}
@@ -208,8 +217,7 @@ export function ImagePreviewGrid({ images: initialImages, style, difficulty, onS
                                                     ) : (
                                                         <>
                                                             <RefreshCw className="mr-1 sm:mr-2 h-3 w-3 sm:h-4 sm:w-4" />
-                                                            <span className="hidden sm:inline">Regenerate</span>
-                                                            <span className="sm:hidden">Regen</span>
+                                                            <span>Regenerate</span>
                                                         </>
                                                     )}
                                                 </Button>

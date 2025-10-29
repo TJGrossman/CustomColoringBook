@@ -67,7 +67,7 @@ export default function Home() {
                     </Button>
                 </div>
                 <p className="text-sm text-muted-foreground mt-4 max-w-[600px]">
-                  <strong>*Pro Tip:</strong> If your little one's imagination is running wild, you can tell our AI how you want to update the images to add a little magic to the memories.
+                  <strong>*Pro Tip:</strong> If your little one's imagination is running wild, you can tell our AI how you want to update the images to add a little extra magic to the memories.
                 </p>
               </div>
               <div className="flex justify-center">

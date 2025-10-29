@@ -17,9 +17,6 @@ export default function CreatePage() {
       </header>
       <main className="flex-1 p-4 sm:p-6 lg:p-8">
         <div className="container mx-auto">
-            <div className="mb-8 text-center">
-                <h1 className="text-2xl font-bold tracking-tight sm:text-3xl">Create Your Coloring Book</h1>
-            </div>
             <ImageUploader />
         </div>
       </main>

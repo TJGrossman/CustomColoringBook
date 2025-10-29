@@ -623,6 +623,10 @@ h1, h2, h3, h4, h5, h6 {
   margin-top: 2rem;
 }
 
+.mt-3 {
+  margin-top: .75rem;
+}
+
 .block {
   display: block;
 }
@@ -754,6 +758,10 @@ h1, h2, h3, h4, h5, h6 {
 
 .h-svh {
   height: 100svh;
+}
+
+.h-screen {
+  height: 100vh;
 }
 
 .max-h-96 {
@@ -1121,6 +1129,10 @@ h1, h2, h3, h4, h5, h6 {
 
 .gap-8 {
   gap: 2rem;
+}
+
+.gap-3 {
+  gap: .75rem;
 }
 
 .space-x-1 > :not([hidden]) ~ :not([hidden]) {
@@ -1509,6 +1521,16 @@ h1, h2, h3, h4, h5, h6 {
   padding-bottom: 1.5rem;
 }
 
+.px-0 {
+  padding-left: 0;
+  padding-right: 0;
+}
+
+.px-6 {
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+}
+
 .pb-12 {
   padding-bottom: 3rem;
 }
@@ -1559,6 +1581,22 @@ h1, h2, h3, h4, h5, h6 {
 
 .pb-9 {
   padding-bottom: 2.25rem;
+}
+
+.pt-14 {
+  padding-top: 3.5rem;
+}
+
+.pt-20 {
+  padding-top: 5rem;
+}
+
+.pb-0 {
+  padding-bottom: 0;
+}
+
+.pt-12 {
+  padding-top: 3rem;
 }
 
 .text-left {
@@ -2707,6 +2745,14 @@ h1, h2, h3, h4, h5, h6 {
     margin-top: .5rem;
   }
 
+  .sm\:mt-4 {
+    margin-top: 1rem;
+  }
+
+  .sm\:mt-8 {
+    margin-top: 2rem;
+  }
+
   .sm\:inline {
     display: inline;
   }
@@ -2783,6 +2829,10 @@ h1, h2, h3, h4, h5, h6 {
     gap: 2rem;
   }
 
+  .sm\:gap-4 {
+    gap: 1rem;
+  }
+
   .sm\:space-x-2 > :not([hidden]) ~ :not([hidden]) {
     --tw-space-x-reverse: 0;
     margin-right: calc(.5rem * var(--tw-space-x-reverse));
@@ -2838,8 +2888,17 @@ h1, h2, h3, h4, h5, h6 {
     padding-right: 1.5rem;
   }
 
+  .sm\:px-8 {
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
+
   .sm\:pt-0 {
     padding-top: 0;
+  }
+
+  .sm\:pt-4 {
+    padding-top: 1rem;
   }
 
   .sm\:text-left {
@@ -3055,8 +3114,42 @@ h1, h2, h3, h4, h5, h6 {
   padding-right: 0;
 }
 
+.\[\&\>button\>svg\]\:\!h-8 > button > svg {
+  height: 2rem !important;
+}
+
+.\[\&\>button\>svg\]\:\!w-8 > button > svg {
+  width: 2rem !important;
+}
+
+.\[\&\>button\]\:\!right-4 > button {
+  right: 1rem !important;
+}
+
+.\[\&\>button\]\:\!top-\[env\(safe-area-inset-top\,1rem\)\] > button {
+  top: env(safe-area-inset-top, 1rem) !important;
+}
+
+.\[\&\>button\]\:\!top-\[60px\] > button {
+  top: 60px !important;
+}
+
+.\[\&\>button\]\:\!top-\[70px\] > button {
+  top: 70px !important;
+}
+
+.\[\&\>button\]\:\!z-\[60\] > button {
+  z-index: 60 !important;
+}
+
 .\[\&\>button\]\:hidden > button {
   display: none;
+}
+
+@media (width >= 768px) {
+  .\[\&\>button\]\:md\:\!top-4 > button {
+    top: 1rem !important;
+  }
 }
 
 .\[\&\>span\:last-child\]\:truncate > span:last-child {
