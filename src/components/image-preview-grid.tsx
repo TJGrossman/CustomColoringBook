@@ -138,12 +138,12 @@ export function ImagePreviewGrid({ images: initialImages, style, difficulty, onS
                 {images.map((image, index) => (
                     <Card key={index} className="group overflow-hidden cursor-pointer" onClick={() => setPreviewIndex(index)}>
                         <CardContent className="p-0">
-                            <div className="relative aspect-square w-full">
+                            <div className="relative aspect-[8.5/11] w-full">
                                 <Image
                                     src={image.converted}
                                     alt={`Coloring page ${index + 1}`}
                                     fill
-                                    className="object-cover bg-white"
+                                    className="object-contain bg-white"
                                 />
                                  <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center print:hidden">
                                     <span className="text-white font-bold">View</span>
