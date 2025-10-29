@@ -1,7 +1,7 @@
 
 'use client';
 
-import { useState, useCallback } from 'react';
+import { useState, useCallback, useEffect } from 'react';
 import Cropper, { Area, Point } from 'react-easy-crop';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
@@ -83,14 +83,60 @@ interface ImageCropperProps {
 export function ImageCropper({ images, onComplete, onCancel }: ImageCropperProps) {
     const [currentIndex, setCurrentIndex] = useState(0);
     const [crop, setCrop] = useState<Point>({ x: 0, y: 0 });
-    const [zoom, setZoom] = useState(1);
+    const [zoom, setZoom] = useState(1); // Start at minimum zoom
     const [rotation, setRotation] = useState(0);
     const [croppedAreaPixels, setCroppedAreaPixels] = useState<Area | null>(null);
     const [croppedImages, setCroppedImages] = useState<string[]>([]);
     const [isProcessing, setIsProcessing] = useState(false);
+    const [imageSize, setImageSize] = useState<{ width: number; height: number } | null>(null);
+
+    useEffect(() => {
+        const style = document.createElement('style');
+        style.textContent = `
+            .reactEasyCrop_Container {
+                height: 100% !important;
+                width: 100% !important;
+                position: relative !important;
+                overflow: hidden !important;
+            }
+            .reactEasyCrop_CropArea {
+                border: none !important;
+                box-shadow: none !important;
+                width: 100% !important;
+                height: 100% !important;
+            }
+            .reactEasyCrop_Media,
+            .reactEasyCrop_Image {
+                object-fit: contain !important;
+            }
+        `;
+        document.head.appendChild(style);
+        return () => {
+            document.head.removeChild(style);
+        };
+    }, []);
+
+    useEffect(() => {
+        // Reset zoom and crop when image changes
+        setZoom(1);
+        setCrop({ x: 0, y: 0 });
+        setImageSize(null);
+    }, [currentIndex]);
 
     const onCropComplete = useCallback((_croppedArea: Area, croppedAreaPixels: Area) => {
         setCroppedAreaPixels(croppedAreaPixels);
+    }, []);
+
+    const handleCropChange = useCallback((newCrop: Point) => {
+        // Let restrictPosition handle the bounds checking
+        // This handler just passes through to ensure smooth interaction
+        setCrop(newCrop);
+    }, []);
+
+    const onMediaLoaded = useCallback((mediaSize: { width: number; height: number }) => {
+        setImageSize(mediaSize);
+        // Keep zoom at minimum (1) - user can zoom in if needed
+        // This allows panning to reveal more of the image
     }, []);
 
     const handleNext = async () => {
@@ -142,23 +188,26 @@ export function ImageCropper({ images, onComplete, onCancel }: ImageCropperProps
                 <CardTitle>Crop Your Images (Step {currentIndex + 1} of {images.length})</CardTitle>
             </CardHeader>
             <CardContent className="p-0 sm:p-6 sm:pt-0">
-                 <div className="relative w-full bg-muted rounded-lg overflow-hidden" style={{ paddingTop: `${(11 / 8.5) * 100}%` }}>
-                    {images[currentIndex] && (
-                        <Cropper
-                            image={images[currentIndex]}
-                            crop={crop}
-                            zoom={zoom}
-                            rotation={rotation}
-                            aspect={PAPER_ASPECT}
-                            onCropChange={setCrop}
-                            onZoomChange={setZoom}
-                            onRotationChange={setRotation}
-                            onCropComplete={onCropComplete}
-                            classes={{
-                                containerClassName: "absolute top-0 left-0 right-0 bottom-0",
-                            }}
-                        />
-                    )}
+                 <div className="relative w-full max-w-[314px] sm:max-w-md mx-auto bg-muted rounded-lg overflow-hidden">
+                    <div style={{ paddingTop: `${(11 / 8.5) * 100}%`, position: 'relative', width: '100%' }}>
+                        {images[currentIndex] && (
+                            <div style={{ position: 'absolute', top: 0, left: 0, right: 0, bottom: 0 }}>
+                                <Cropper
+                                    image={images[currentIndex]}
+                                    crop={crop}
+                                    zoom={zoom}
+                                    rotation={rotation}
+                                    aspect={PAPER_ASPECT}
+                                    onCropChange={handleCropChange}
+                                    onZoomChange={setZoom}
+                                    onRotationChange={setRotation}
+                                    onCropComplete={onCropComplete}
+                                    onMediaLoaded={onMediaLoaded}
+                                    restrictPosition={false}
+                                />
+                            </div>
+                        )}
+                    </div>
                 </div>
                 <div className="space-y-4 mt-4 px-4 sm:px-0">
                      <div className="grid grid-cols-1 gap-4 items-center">
@@ -176,27 +225,27 @@ export function ImageCropper({ images, onComplete, onCancel }: ImageCropperProps
                     </div>
                 </div>
             </CardContent>
-            <CardFooter className="flex justify-between items-center p-4 sm:p-6 sm:pt-0">
-                <Button variant="outline" onClick={onCancel} disabled={isProcessing}>
-                    <Ban className="mr-2 h-4 w-4" />
-                    Cancel
-                </Button>
-                <div className="flex-1 flex justify-center">
-                    <Button variant="outline" onClick={() => setRotation(r => (r + 90) % 360)}>
+            <CardFooter className="flex flex-col sm:flex-row justify-between items-stretch sm:items-center gap-2 p-4 sm:p-6 sm:pt-0">
+                <div className="flex gap-2 w-full sm:w-auto">
+                    <Button variant="outline" onClick={onCancel} disabled={isProcessing} className="w-1/2 sm:w-auto">
+                        <Ban className="mr-2 h-4 w-4" />
+                        Cancel
+                    </Button>
+                    <Button variant="outline" onClick={() => setRotation(r => (r + 90) % 360)} className="w-1/2 sm:w-auto">
                         <RotateCw className="mr-2 h-4 w-4" />
                         Rotate
                     </Button>
                 </div>
-                <div className="flex gap-2">
+                <div className="flex gap-2 w-full sm:w-auto">
                     {currentIndex < images.length -1 && (
-                        <Button onClick={handleNext} disabled={isProcessing}>
+                        <Button onClick={handleNext} disabled={isProcessing} className="w-1/2 sm:w-auto">
                              {isProcessing ? 'Processing...' : `Next Image (${currentIndex + 2}/${images.length})`}
                             <ChevronRight className="ml-2 h-4 w-4" />
                         </Button>
                     )}
-                    <Button onClick={handleFinish} disabled={isProcessing}>
+                    <Button onClick={handleFinish} disabled={isProcessing} className={currentIndex < images.length - 1 ? "w-1/2 sm:w-auto" : "w-full sm:w-auto"}>
                         <Check className="mr-2 h-4 w-4" />
-                        {isProcessing ? 'Processing...' : 'Finish & Create'}
+                        {isProcessing ? 'Processing...' : 'Finish'}
                     </Button>
                 </div>
             </CardFooter>

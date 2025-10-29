@@ -333,9 +333,17 @@ h1, h2, h3, h4, h5, h6 {
   width: 100%;
 }
 
+.\!container {
+  width: 100% !important;
+}
+
 @media (width >= 640px) {
   .container {
     max-width: 640px;
+  }
+
+  .\!container {
+    max-width: 640px !important;
   }
 }
 
@@ -343,11 +351,19 @@ h1, h2, h3, h4, h5, h6 {
   .container {
     max-width: 768px;
   }
+
+  .\!container {
+    max-width: 768px !important;
+  }
 }
 
 @media (width >= 1024px) {
   .container {
     max-width: 1024px;
+  }
+
+  .\!container {
+    max-width: 1024px !important;
   }
 }
 
@@ -355,11 +371,19 @@ h1, h2, h3, h4, h5, h6 {
   .container {
     max-width: 1280px;
   }
+
+  .\!container {
+    max-width: 1280px !important;
+  }
 }
 
 @media (width >= 1536px) {
   .container {
     max-width: 1536px;
+  }
+
+  .\!container {
+    max-width: 1536px !important;
   }
 }
 
@@ -892,6 +916,10 @@ h1, h2, h3, h4, h5, h6 {
   width: 100vw;
 }
 
+.w-1\/2 {
+  width: 50%;
+}
+
 .min-w-0 {
   min-width: 0;
 }
@@ -910,6 +938,10 @@ h1, h2, h3, h4, h5, h6 {
 
 .min-w-\[var\(--radix-select-trigger-width\)\] {
   min-width: var(--radix-select-trigger-width);
+}
+
+.min-w-\[120px\] {
+  min-width: 120px;
 }
 
 .max-w-2xl {
@@ -950,6 +982,14 @@ h1, h2, h3, h4, h5, h6 {
 
 .max-w-sm {
   max-width: 24rem;
+}
+
+.max-w-\[280px\] {
+  max-width: 280px;
+}
+
+.max-w-\[314px\] {
+  max-width: 314px;
 }
 
 .flex-1 {
@@ -1249,6 +1289,10 @@ h1, h2, h3, h4, h5, h6 {
   border-width: 1.5px;
 }
 
+.\!border-0 {
+  border-width: 0 !important;
+}
+
 .border-b {
   border-bottom-width: 1px;
 }
@@ -1422,6 +1466,10 @@ h1, h2, h3, h4, h5, h6 {
 
 .object-cover {
   object-fit: cover;
+}
+
+.\!object-cover {
+  object-fit: cover !important;
 }
 
 .p-0 {
@@ -2793,8 +2841,20 @@ h1, h2, h3, h4, h5, h6 {
     width: auto;
   }
 
+  .sm\:min-w-0 {
+    min-width: 0;
+  }
+
   .sm\:max-w-sm {
     max-width: 24rem;
+  }
+
+  .sm\:max-w-md {
+    max-width: 28rem;
+  }
+
+  .sm\:flex-none {
+    flex: none;
   }
 
   .sm\:grid-cols-3 {
@@ -2807,6 +2867,10 @@ h1, h2, h3, h4, h5, h6 {
 
   .sm\:flex-col {
     flex-direction: column;
+  }
+
+  .sm\:items-center {
+    align-items: center;
   }
 
   .sm\:justify-end {
