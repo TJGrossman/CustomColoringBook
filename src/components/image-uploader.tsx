@@ -45,26 +45,44 @@ export function ImageUploader() {
     const [difficulty, setDifficulty] = useState(3);
     const [croppingStep, setCroppingStep] = useState(false);
     const [isAddingMorePhotos, setIsAddingMorePhotos] = useState(false);
+    const [showDifficultyTooltip, setShowDifficultyTooltip] = useState(false); // Tooltip state
 
     const difficultyLabels: Record<number, string> = {
-        1: 'Very Easy',
-        2: 'Easy',
+        1: 'Very Simple',
+        2: 'Simple',
         3: 'Normal',
-        4: 'Difficult',
-        5: 'Very Difficult',
+        4: 'Detailed',
+        5: 'Very Detailed',
     };
 
     // Example images for difficulty preview (you'll provide these)
     const difficultyExamples = {
-        original: '/examples/original.jpg',
-        1: '/examples/very-easy.jpg',
-        2: '/examples/easy.jpg', 
-        3: '/examples/normal.jpg',
-        4: '/examples/difficult.jpg',
-        5: '/examples/very-difficult.jpg'
+        original: '/examples/original.png',
+        1: '/examples/very-easy.png',
+        2: '/examples/easy.png',
+        3: '/examples/normal.png',
+        4: '/examples/difficult.png',
+        5: '/examples/very-difficult.png'
     };
 
     const { toast } = useToast();
+
+    // Close tooltip when clicking outside
+    useEffect(() => {
+        const handleClickOutside = (event: MouseEvent) => {
+            if (showDifficultyTooltip) {
+                const target = event.target as Element;
+                if (!target.closest('.difficulty-tooltip-container')) {
+                    setShowDifficultyTooltip(false);
+                }
+            }
+        };
+
+        if (showDifficultyTooltip) {
+            document.addEventListener('mousedown', handleClickOutside);
+            return () => document.removeEventListener('mousedown', handleClickOutside);
+        }
+    }, [showDifficultyTooltip]);
 
     const handleFiles = useCallback(async (incomingFiles: FileList | null) => {
         if (!incomingFiles) return;
@@ -261,59 +279,71 @@ export function ImageUploader() {
                         </div>
                         <div className="grid gap-2 w-full max-w-sm">
                              <div className="flex justify-between items-center">
-                                <Label htmlFor="difficulty-slider">Difficulty: {difficultyLabels[difficulty]}</Label>
+                                <Label htmlFor="difficulty-slider">Level of Detail: {difficultyLabels[difficulty]}</Label>
                                 <span className='text-sm font-medium text-muted-foreground bg-muted px-2 py-1 rounded-md'>{difficulty}</span>
                             </div>
                             <div className="flex items-center gap-4">
-                                <span className="text-sm text-muted-foreground">Very Easy</span>
-                                <TooltipProvider>
-                                    <Tooltip>
-                                        <TooltipTrigger asChild>
-                                            <div className="flex-1">
-                                                <Slider
-                                                    id="difficulty-slider"
-                                                    min={1}
-                                                    max={5}
-                                                    step={1}
-                                                    value={[difficulty]}
-                                                    onValueChange={(value) => setDifficulty(value[0])}
-                                                />
-                                            </div>
-                                        </TooltipTrigger>
-                                        <TooltipContent side="top" className="p-4">
-                                            <div className="space-y-2">
-                                                <h4 className="font-semibold text-sm text-center">{difficultyLabels[difficulty]} ({difficulty})</h4>
-                                                <div className="flex gap-2">
-                                                    <div className="text-center">
-                                                        <div className="aspect-[8.5/11] w-20 bg-gray-100 rounded mb-1 overflow-hidden">
-                                                            <Image
-                                                                src={difficultyExamples.original}
-                                                                alt="Original"
-                                                                width={80}
-                                                                height={103}
-                                                                className="w-full h-full object-cover"
-                                                            />
-                                                        </div>
-                                                        <p className="text-xs">Original</p>
+                                <span className="text-sm text-muted-foreground">Very Simple</span>
+                                <div className="flex-1 relative difficulty-tooltip-container">
+                                    <Slider
+                                        id="difficulty-slider"
+                                        min={1}
+                                        max={5}
+                                        step={1}
+                                        value={[difficulty]}
+                                        onValueChange={(value) => setDifficulty(value[0])}
+                                        onMouseDown={() => setShowDifficultyTooltip(true)}
+                                        onMouseEnter={() => setShowDifficultyTooltip(true)}
+                                        onTouchStart={() => setShowDifficultyTooltip(true)}
+                                    />
+                                    
+                                    {/* Custom Tooltip */}
+                                    {showDifficultyTooltip && (
+                                        <div className="fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-50">
+                                            <div className="bg-popover border rounded-lg shadow-lg p-6 sm:p-8 max-w-none w-auto">
+                                                <div className="space-y-4 sm:space-y-6">
+                                                    <div className="flex justify-between items-center">
+                                                        <h4 className="font-semibold text-lg sm:text-xl">Example: {difficultyLabels[difficulty]} ({difficulty})</h4>
+                                                        <button
+                                                            onClick={() => setShowDifficultyTooltip(false)}
+                                                            className="text-muted-foreground hover:text-foreground transition-colors"
+                                                            aria-label="Close tooltip"
+                                                        >
+                                                            <X className="h-4 w-4 sm:h-5 sm:w-5" />
+                                                        </button>
                                                     </div>
-                                                    <div className="text-center">
-                                                        <div className="aspect-[8.5/11] w-20 bg-gray-100 rounded mb-1 overflow-hidden">
-                                                            <Image
-                                                                src={difficultyExamples[difficulty as keyof typeof difficultyExamples]}
-                                                                alt={difficultyLabels[difficulty]}
-                                                                width={80}
-                                                                height={103}
-                                                                className="w-full h-full object-cover"
-                                                            />
+                                                    <div className="flex gap-8 sm:gap-12">
+                                                        <div className="text-center">
+                                                            <div className="aspect-[8.5/11] w-36 sm:w-72 bg-gray-100 rounded-lg mb-2 overflow-hidden shadow-md">
+                                                                <Image
+                                                                    src={difficultyExamples.original}
+                                                                    alt="Original"
+                                                                    width={216}
+                                                                    height={280}
+                                                                    className="w-full h-full object-contain"
+                                                                />
+                                                            </div>
+                                                            <p className="text-sm sm:text-base font-medium">Original</p>
                                                         </div>
-                                                        <p className="text-xs">{difficultyLabels[difficulty]}</p>
+                                                        <div className="text-center">
+                                                            <div className="aspect-[8.5/11] w-36 sm:w-72 bg-gray-100 rounded-lg mb-2 overflow-hidden shadow-md">
+                                                                <Image
+                                                                    src={difficultyExamples[difficulty as keyof typeof difficultyExamples]}
+                                                                    alt={difficultyLabels[difficulty]}
+                                                                    width={216}
+                                                                    height={280}
+                                                                    className="w-full h-full object-contain"
+                                                                />
+                                                            </div>
+                                                            <p className="text-sm sm:text-base font-medium">{difficultyLabels[difficulty]}</p>
+                                                        </div>
                                                     </div>
                                                 </div>
                                             </div>
-                                        </TooltipContent>
-                                    </Tooltip>
-                                </TooltipProvider>
-                                <span className="text-sm text-muted-foreground">Very Difficult</span>
+                                        </div>
+                                    )}
+                                </div>
+                                <span className="text-sm text-muted-foreground">Very Detailed</span>
                             </div>
                         </div>
                     </div>
