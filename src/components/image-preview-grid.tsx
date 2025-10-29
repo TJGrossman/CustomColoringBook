@@ -155,7 +155,7 @@ export function ImagePreviewGrid({ images: initialImages, style, difficulty, onS
             </div>
 
             <Dialog open={previewIndex !== null} onOpenChange={(isOpen) => !isOpen && setPreviewIndex(null)}>
-                <DialogContent className={`${isMobile ? 'w-screen h-[90vh] max-w-none max-h-none m-0 rounded-none' : 'max-w-6xl w-[95vw] max-h-[95vh]'} p-0 bg-secondary flex flex-col justify-center items-center`}>
+                <DialogContent className={`${isMobile ? 'w-screen h-[80vh] max-w-none max-h-none m-0 rounded-none' : 'max-w-6xl w-[95vw] max-h-[95vh]'} p-0 bg-secondary flex flex-col justify-center items-center`}>
                     <DialogTitle className="sr-only">Coloring Book Preview</DialogTitle>
                     {previewIndex !== null && (
                         <Carousel 
