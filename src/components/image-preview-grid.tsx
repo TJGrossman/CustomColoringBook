@@ -155,7 +155,7 @@ export function ImagePreviewGrid({ images: initialImages, style, difficulty, onS
             </div>
 
             <Dialog open={previewIndex !== null} onOpenChange={(isOpen) => !isOpen && setPreviewIndex(null)}>
-                <DialogContent className="max-w-4xl w-full max-h-[90vh] p-0 bg-secondary flex flex-col justify-center items-center">
+                <DialogContent className={`${isMobile ? 'w-screen h-screen max-w-none max-h-none m-0 rounded-none' : 'max-w-6xl w-[95vw] max-h-[95vh]'} p-0 bg-secondary flex flex-col justify-center items-center`}>
                     <DialogTitle className="sr-only">Coloring Book Preview</DialogTitle>
                     {previewIndex !== null && (
                         <Carousel 
@@ -171,7 +171,7 @@ export function ImagePreviewGrid({ images: initialImages, style, difficulty, onS
                                                 <p className="text-xs text-muted-foreground mt-1">Swipe to navigate</p>
                                             )}
                                         </div>
-                                        <div className="relative w-full max-w-[300px] sm:max-w-[400px] aspect-[8.5/11] shadow-lg rounded-md overflow-hidden bg-white mx-auto flex-shrink-0">
+                                        <div className={`relative w-full aspect-[8.5/11] shadow-lg rounded-md overflow-hidden bg-white mx-auto flex-shrink-0 ${isMobile ? 'max-w-[90vw]' : 'max-w-[500px]'}`}>
                                             <Image
                                                 src={image.converted}
                                                 alt={`Coloring page ${index + 1}`}

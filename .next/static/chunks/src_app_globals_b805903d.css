@@ -529,6 +529,10 @@ h1, h2, h3, h4, h5, h6 {
   z-index: 100;
 }
 
+.m-0 {
+  margin: 0;
+}
+
 .-mx-1 {
   margin-left: -.25rem;
   margin-right: -.25rem;
@@ -756,6 +760,10 @@ h1, h2, h3, h4, h5, h6 {
   height: .75rem;
 }
 
+.h-screen {
+  height: 100vh;
+}
+
 .max-h-96 {
   max-height: 24rem;
 }
@@ -766,6 +774,14 @@ h1, h2, h3, h4, h5, h6 {
 
 .max-h-\[90vh\] {
   max-height: 90vh;
+}
+
+.max-h-\[95vh\] {
+  max-height: 95vh;
+}
+
+.max-h-none {
+  max-height: none;
 }
 
 .min-h-0 {
@@ -876,6 +892,14 @@ h1, h2, h3, h4, h5, h6 {
   width: .75rem;
 }
 
+.w-\[95vw\] {
+  width: 95vw;
+}
+
+.w-screen {
+  width: 100vw;
+}
+
 .min-w-0 {
   min-width: 0;
 }
@@ -934,6 +958,18 @@ h1, h2, h3, h4, h5, h6 {
 
 .max-w-\[300px\] {
   max-width: 300px;
+}
+
+.max-w-6xl {
+  max-width: 72rem;
+}
+
+.max-w-none {
+  max-width: none;
+}
+
+.max-w-\[90vw\] {
+  max-width: 90vw;
 }
 
 .flex-1 {
@@ -1191,6 +1227,10 @@ h1, h2, h3, h4, h5, h6 {
 
 .rounded-xl {
   border-radius: .75rem;
+}
+
+.rounded-none {
+  border-radius: 0;
 }
 
 .border {
