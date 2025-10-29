@@ -24,6 +24,7 @@ import {
 import { Textarea } from './ui/textarea';
 import { Label } from './ui/label';
 import { copyToClipboard } from '@/lib/clipboard';
+import { useIsMobile } from '@/hooks/use-mobile';
 
 
 type ImagePreviewGridProps = {
@@ -39,6 +40,7 @@ export function ImagePreviewGrid({ images: initialImages, style, difficulty, onS
     const [loadingStates, setLoadingStates] = useState<Record<number, boolean>>({});
     const [previewIndex, setPreviewIndex] = useState<number | null>(null);
     const [userNotes, setUserNotes] = useState("");
+    const isMobile = useIsMobile();
 
     const { toast } = useToast();
 
@@ -165,6 +167,9 @@ export function ImagePreviewGrid({ images: initialImages, style, difficulty, onS
                                     <CarouselItem key={index} className="h-full flex flex-col items-center justify-start p-2 sm:p-4">
                                         <div className="text-center mb-2">
                                             <p className="text-sm sm:text-lg font-semibold">Page {index + 1} of {images.length}</p>
+                                            {isMobile && images.length > 1 && (
+                                                <p className="text-xs text-muted-foreground mt-1">Swipe to navigate</p>
+                                            )}
                                         </div>
                                         <div className="relative w-full max-w-[300px] sm:max-w-[400px] aspect-[8.5/11] shadow-lg rounded-md overflow-hidden bg-white mx-auto flex-shrink-0">
                                             <Image
@@ -220,8 +225,8 @@ export function ImagePreviewGrid({ images: initialImages, style, difficulty, onS
                                     </CarouselItem>
                                 ))}
                             </CarouselContent>
-                            <CarouselPrevious className="absolute left-4 top-1/2 -translate-y-1/2" />
-                            <CarouselNext className="absolute right-4 top-1/2 -translate-y-1/2" />
+                            <CarouselPrevious className={`absolute left-4 top-1/2 -translate-y-1/2 ${isMobile ? 'hidden' : ''}`} />
+                            <CarouselNext className={`absolute right-4 top-1/2 -translate-y-1/2 ${isMobile ? 'hidden' : ''}`} />
                         </Carousel>
                     )}
                 </DialogContent>
