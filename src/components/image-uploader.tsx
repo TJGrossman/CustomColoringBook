@@ -13,6 +13,7 @@ import { Label } from './ui/label';
 import { Switch } from './ui/switch';
 import { Slider } from './ui/slider';
 import { ImageCropper } from './image-cropper';
+import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from './ui/tooltip';
 
 interface UploadedFile {
     file: File;
@@ -51,6 +52,16 @@ export function ImageUploader() {
         3: 'Normal',
         4: 'Difficult',
         5: 'Very Difficult',
+    };
+
+    // Example images for difficulty preview (you'll provide these)
+    const difficultyExamples = {
+        original: '/examples/original.jpg',
+        1: '/examples/very-easy.jpg',
+        2: '/examples/easy.jpg', 
+        3: '/examples/normal.jpg',
+        4: '/examples/difficult.jpg',
+        5: '/examples/very-difficult.jpg'
     };
 
     const { toast } = useToast();
@@ -255,14 +266,53 @@ export function ImageUploader() {
                             </div>
                             <div className="flex items-center gap-4">
                                 <span className="text-sm text-muted-foreground">Very Easy</span>
-                                <Slider
-                                    id="difficulty-slider"
-                                    min={1}
-                                    max={5}
-                                    step={1}
-                                    value={[difficulty]}
-                                    onValueChange={(value) => setDifficulty(value[0])}
-                                />
+                                <TooltipProvider>
+                                    <Tooltip>
+                                        <TooltipTrigger asChild>
+                                            <div className="flex-1">
+                                                <Slider
+                                                    id="difficulty-slider"
+                                                    min={1}
+                                                    max={5}
+                                                    step={1}
+                                                    value={[difficulty]}
+                                                    onValueChange={(value) => setDifficulty(value[0])}
+                                                />
+                                            </div>
+                                        </TooltipTrigger>
+                                        <TooltipContent side="top" className="p-4">
+                                            <div className="space-y-2">
+                                                <h4 className="font-semibold text-sm text-center">{difficultyLabels[difficulty]} ({difficulty})</h4>
+                                                <div className="flex gap-2">
+                                                    <div className="text-center">
+                                                        <div className="aspect-[8.5/11] w-20 bg-gray-100 rounded mb-1 overflow-hidden">
+                                                            <Image
+                                                                src={difficultyExamples.original}
+                                                                alt="Original"
+                                                                width={80}
+                                                                height={103}
+                                                                className="w-full h-full object-cover"
+                                                            />
+                                                        </div>
+                                                        <p className="text-xs">Original</p>
+                                                    </div>
+                                                    <div className="text-center">
+                                                        <div className="aspect-[8.5/11] w-20 bg-gray-100 rounded mb-1 overflow-hidden">
+                                                            <Image
+                                                                src={difficultyExamples[difficulty as keyof typeof difficultyExamples]}
+                                                                alt={difficultyLabels[difficulty]}
+                                                                width={80}
+                                                                height={103}
+                                                                className="w-full h-full object-cover"
+                                                            />
+                                                        </div>
+                                                        <p className="text-xs">{difficultyLabels[difficulty]}</p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </TooltipContent>
+                                    </Tooltip>
+                                </TooltipProvider>
                                 <span className="text-sm text-muted-foreground">Very Difficult</span>
                             </div>
                         </div>
