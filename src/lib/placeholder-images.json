@@ -2,15 +2,15 @@
   "placeholderImages": [
     {
       "id": "hero-photo",
-      "description": "A vibrant photo of a landscape.",
-      "imageUrl": "https://images.unsplash.com/photo-1708784568386-484092bb0ef1?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwyfHx2aWJyYW50JTIwbGFuZHNjYXBlfGVufDB8fHx8MTc2MTQ2MzU2NXww&ixlib=rb-4.1.0&q=80&w=1080",
-      "imageHint": "vibrant landscape"
+      "description": "A family enjoying a day at the beach.",
+      "imageUrl": "/examples/original.png",
+      "imageHint": "family beach photo"
     },
     {
       "id": "hero-coloring",
-      "description": "A coloring book version of a landscape.",
-      "imageUrl": "https://images.unsplash.com/photo-1653107945098-6a48e7ae9685?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw5fHxsYW5kc2NhcGUlMjBsaW5lYXJ0fGVufDB8fHx8MTc2MTQ2MzU2NXww&ixlib=rb-4.1.0&q=80&w=1080",
-      "imageHint": "landscape lineart"
+      "description": "A coloring book version of the family beach photo.",
+      "imageUrl": "/examples/normal.png",
+      "imageHint": "family beach coloring page"
     },
     {
       "id": "feature-1",

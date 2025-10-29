@@ -13,7 +13,7 @@ export function AppHeader() {
           <SidebarTrigger />
           <Link href="/dashboard">
             <Logo className="h-6 w-6" />
-            <span className="sr-only">ColorizeAI</span>
+            <span className="sr-only">ColoringPics</span>
           </Link>
         </div>
 

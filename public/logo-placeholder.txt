@@ -1,0 +1,12 @@
+# ColoringPics Logo Placeholder
+
+Please replace this file with your actual colorful camera logo image.
+
+The logo should be:
+- A colorful camera icon as shown in the user's image
+- PNG format
+- Square aspect ratio (1:1)
+- High resolution for crisp display
+- Saved as `public/logo.png`
+
+The current Logo component is set up to display this image at 24x24 pixels in the header.
