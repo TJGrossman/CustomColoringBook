@@ -1,0 +1,27 @@
+{
+  "node": {
+    "40e8547f6fade59128331142be7b69cfaa29bda156": {
+      "workers": {
+        "app/create/page": {
+          "moduleId": "[project]/.next-internal/server/app/create/page/actions.js { ACTIONS_MODULE0 => \"[project]/src/ai/flows/generate-coloring-book-images.ts [app-rsc] (ecmascript)\", ACTIONS_MODULE1 => \"[project]/src/ai/flows/regenerate-individual-image.ts [app-rsc] (ecmascript)\" } [app-rsc] (server actions loader, ecmascript)",
+          "async": false
+        }
+      },
+      "layer": {
+        "app/create/page": "action-browser"
+      }
+    },
+    "4057c2ca89bb0df45295aa83d77d3f31b310c807a2": {
+      "workers": {
+        "app/create/page": {
+          "moduleId": "[project]/.next-internal/server/app/create/page/actions.js { ACTIONS_MODULE0 => \"[project]/src/ai/flows/generate-coloring-book-images.ts [app-rsc] (ecmascript)\", ACTIONS_MODULE1 => \"[project]/src/ai/flows/regenerate-individual-image.ts [app-rsc] (ecmascript)\" } [app-rsc] (server actions loader, ecmascript)",
+          "async": false
+        }
+      },
+      "layer": {
+        "app/create/page": "action-browser"
+      }
+    }
+  },
+  "edge": {}
+}

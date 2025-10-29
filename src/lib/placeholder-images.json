@@ -1,0 +1,58 @@
+{
+  "placeholderImages": [
+    {
+      "id": "hero-photo",
+      "description": "A vibrant photo of a landscape.",
+      "imageUrl": "https://images.unsplash.com/photo-1708784568386-484092bb0ef1?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwyfHx2aWJyYW50JTIwbGFuZHNjYXBlfGVufDB8fHx8MTc2MTQ2MzU2NXww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "vibrant landscape"
+    },
+    {
+      "id": "hero-coloring",
+      "description": "A coloring book version of a landscape.",
+      "imageUrl": "https://images.unsplash.com/photo-1653107945098-6a48e7ae9685?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw5fHxsYW5kc2NhcGUlMjBsaW5lYXJ0fGVufDB8fHx8MTc2MTQ2MzU2NXww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "landscape lineart"
+    },
+    {
+      "id": "feature-1",
+      "description": "Person uploading photos to a cloud service.",
+      "imageUrl": "https://images.unsplash.com/photo-1616856137831-38f9aba296a9?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw0fHx1cGxvYWRpbmclMjBwaG90b3N8ZW58MHx8fHwxNzYxNDYzNTY1fDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "uploading photos"
+    },
+    {
+      "id": "feature-2",
+      "description": "An AI robot holding a paintbrush.",
+      "imageUrl": "https://images.unsplash.com/photo-1562187415-6462382445da?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw4fHxBSSUyMGFydHxlbnwwfHx8fDE3NjE0NDYyNjh8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "AI art"
+    },
+    {
+      "id": "feature-3",
+      "description": "A printed book and a tablet showing a PDF.",
+      "imageUrl": "https://images.unsplash.com/photo-1695238665555-274f5d5c610b?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw3fHxwcmludGVkJTIwYm9va3xlbnwwfHx8fDE3NjE0NjM1NjV8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "printed book"
+    },
+    {
+      "id": "project-cover-1",
+      "description": "A family portrait.",
+      "imageUrl": "https://images.unsplash.com/photo-1596510914965-9ae08acae566?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw5fHxmYW1pbHklMjBwb3J0cmFpdHxlbnwwfHx8fDE3NjEzNjg0NTF8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "family portrait"
+    },
+    {
+      "id": "project-cover-2",
+      "description": "A dog playing in a park.",
+      "imageUrl": "https://images.unsplash.com/photo-1589756695365-4e0915b3a246?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwyfHxkb2clMjBwYXJrfGVufDB8fHx8MTc2MTQ0NjczMHww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "dog park"
+    },
+    {
+      "id": "project-cover-3",
+      "description": "A beautiful wedding photo.",
+      "imageUrl": "https://images.unsplash.com/photo-1659426011080-9a63537ed679?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw3fHx3ZWRkaW5nJTIwcGhvdG98ZW58MHx8fHwxNzYxNDYzNTY1fDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "wedding photo"
+    },
+    {
+      "id": "project-cover-4",
+      "description": "A collection of travel photos from Italy.",
+      "imageUrl": "https://images.unsplash.com/photo-1575319193293-9eca40c67e21?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwzfHxJdGFseSUyMHRyYXZlbHxlbnwwfHx8fDE3NjE0NjM1NjV8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "Italy travel"
+    }
+  ]
+}

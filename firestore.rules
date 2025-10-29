@@ -1,0 +1,123 @@
+/**
+ * @fileoverview Firestore Security Rules for ColorizeAI
+ *
+ * Core Philosophy:
+ * This ruleset enforces a strict user-ownership model for user profiles, projects, and images.
+ * Orders are secured with a combination of user ownership and potential admin roles.
+ * The design prioritizes simplicity and performance, avoiding `get()` calls by denormalizing
+ * data required for authorization directly onto the documents.
+ *
+ * Data Structure:
+ * - /users/{userId}: User profile data, owned by the user.
+ * - /users/{userId}/projects/{projectId}: Projects created by the user.
+ * - /users/{userId}/projects/{projectId}/images/{imageId}: Images within a project.
+ * - /orders/{orderId}: Order information, with denormalized userId and projectId.
+ *
+ * Key Security Decisions:
+ * - User listing is disallowed.
+ * - Data validation is limited to fields critical for authorization and relational integrity.
+ * - The rules are designed to be auditable and maintainable, using helper functions for complex logic.
+ *
+ * Denormalization for Authorization:
+ * - Orders include `userId` and `projectId` to avoid needing to traverse the `/users/{userId}/projects/{projectId}` path
+ *   to validate ownership.
+ */
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    /**
+     * @description Protects user profile data.
+     * @path /users/{userId}
+     * @allow (create) User with ID 'user123' can create their profile.
+     * @allow (get) User with ID 'user123' can read their profile.
+     * @allow (update) User with ID 'user123' can update their profile.
+     * @allow (delete) User with ID 'user123' can delete their profile.
+     * @deny (create) User with ID 'user456' cannot create a profile with ID 'user123'.
+     * @deny (get) User with ID 'user456' cannot read the profile of 'user123'.
+     * @principle Enforces document ownership for writes.
+     */
+    match /users/{userId} {
+      // Only signed-in users can attempt operations.
+      allow get: if isSignedIn() && isOwner(userId);
+      allow list: if false;
+      allow create: if isSignedIn() && isOwner(userId);
+      allow update: if isSignedIn() && isExistingOwner(userId);
+      allow delete: if isSignedIn() && isExistingOwner(userId);
+    }
+
+    /**
+     * @description Protects projects created by users.
+     * @path /users/{userId}/projects/{projectId}
+     * @allow (create) User with ID 'user123' can create a project under their user ID.
+     * @allow (get) User with ID 'user123' can read a project under their user ID.
+     * @allow (update) User with ID 'user123' can update a project under their user ID.
+     * @allow (delete) User with ID 'user123' can delete a project under their user ID.
+     * @deny (create) User with ID 'user456' cannot create a project under user ID 'user123'.
+     * @deny (get) User with ID 'user456' cannot read a project under user ID 'user123'.
+     * @principle Enforces document ownership for writes within a user's data tree.
+     */
+    match /users/{userId}/projects/{projectId} {
+      allow get: if isSignedIn() && isOwner(userId);
+      allow list: if isSignedIn() && isOwner(userId);
+      allow create: if isSignedIn() && isOwner(userId);
+      allow update: if isSignedIn() && isExistingOwner(userId);
+      allow delete: if isSignedIn() && isExistingOwner(userId);
+    }
+
+    /**
+     * @description Protects images associated with a specific project.
+     * @path /users/{userId}/projects/{projectId}/images/{imageId}
+     * @allow (create) User with ID 'user123' can create an image in their project.
+     * @allow (get) User with ID 'user123' can read an image in their project.
+     * @allow (update) User with ID 'user123' can update an image in their project.
+     * @allow (delete) User with ID 'user123' can delete an image in their project.
+     * @deny (create) User with ID 'user456' cannot create an image in project under user ID 'user123'.
+     * @deny (get) User with ID 'user456' cannot read an image in project under user ID 'user123'.
+     * @principle Enforces document ownership for writes within a user's project data tree.
+     */
+    match /users/{userId}/projects/{projectId}/images/{imageId} {
+      allow get: if isSignedIn() && isOwner(userId);
+      allow list: if isSignedIn() && isOwner(userId);
+      allow create: if isSignedIn() && isOwner(userId);
+      allow update: if isSignedIn() && isExistingOwner(userId);
+      allow delete: if isSignedIn() && isExistingOwner(userId);
+    }
+
+    /**
+     * @description Protects order information.
+     * @path /orders/{orderId}
+     * @allow (get) Any signed-in user can read an order.
+     * @allow (create) Any signed-in user can create an order.
+     * @allow (update) Only the user who created the order can update it.
+     * @allow (delete) Only the user who created the order can delete it.
+     * @deny (create) An unauthenticated user cannot create an order.
+     * @deny (update) User with ID 'user456' cannot update order with userId 'user123'.
+     * @principle Enforces document ownership for writes, allowing public reads.
+     */
+    match /orders/{orderId} {
+      allow get: if isSignedIn();
+      allow list: if false;
+      allow create: if isSignedIn() && request.resource.data.userId == request.auth.uid;
+      allow update: if isSignedIn() && isExistingOrderOwner(resource.data.userId);
+      allow delete: if isSignedIn() && isExistingOrderOwner(resource.data.userId);
+    }
+
+    // Helper functions
+    function isSignedIn() {
+      return request.auth != null;
+    }
+
+    function isOwner(userId) {
+      return request.auth.uid == userId;
+    }
+
+    function isExistingOwner(userId) {
+      return isSignedIn() && isOwner(userId) && resource != null;
+    }
+
+    function isExistingOrderOwner(userId) {
+      return isSignedIn() && request.auth.uid == userId && resource != null;
+    }
+  }
+}
