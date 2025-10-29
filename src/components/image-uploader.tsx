@@ -196,6 +196,22 @@ export function ImageUploader() {
     
     const isButtonDisabled = isSubmitting || files.length === 0;
 
+    if (isSubmitting) {
+        return (
+            <Card className="bg-[#1a0d2e]/90 border-purple-900">
+                <CardContent className="p-12 flex flex-col items-center justify-center min-h-[400px]">
+                    <Loader2 className="h-12 w-12 text-purple-300 animate-spin mb-4" />
+                    <h3 className="text-xl font-semibold text-white mb-2">
+                        {isAddingMorePhotos ? "Adding Photos..." : "Creating Your Coloring Book"}
+                    </h3>
+                    <p className="text-purple-200 text-center max-w-md">
+                        Our AI is converting your photos into coloring pages. This might take a moment...
+                    </p>
+                </CardContent>
+            </Card>
+        );
+    }
+
     if (convertedImages.length > 0 && !isAddingMorePhotos) {
         return (
             <div>

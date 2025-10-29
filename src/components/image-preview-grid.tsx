@@ -162,7 +162,7 @@ export function ImagePreviewGrid({ images: initialImages, style, difficulty, onS
                 onOpenChange={(isOpen) => !isOpen && setPreviewIndex(null)}
             >
                 <DialogContent 
-                    className="w-screen h-screen max-w-none max-h-none m-0 rounded-none p-0 bg-secondary flex flex-col justify-center items-center [&>button]:!top-[70px] [&>button]:md:!top-4 [&>button]:!right-4 [&>button]:!z-[60] [&>button>svg]:!h-8 [&>button>svg]:!w-8"
+                    className="w-screen h-screen max-w-none max-h-none m-0 rounded-none p-0 bg-[#2d1b4e] flex flex-col justify-center items-center [&>button]:!top-[70px] [&>button]:md:!top-4 [&>button]:!right-4 [&>button]:!z-[100] [&>button]:!p-2.5 [&>button]:!bg-purple-700/80 [&>button]:!text-white [&>button]:!rounded-full [&>button]:!hover:bg-purple-600 [&>button]:!transition-colors [&>button]:!min-w-[36px] [&>button]:!min-h-[36px] [&>button]:!flex [&>button]:!items-center [&>button]:!justify-center [&>button>svg]:!h-5 [&>button>svg]:!w-5"
                     onOpenAutoFocus={(e) => e.preventDefault()}
                 >
                     <DialogTitle className="sr-only">Coloring Book Preview</DialogTitle>
@@ -175,9 +175,9 @@ export function ImagePreviewGrid({ images: initialImages, style, difficulty, onS
                                 {images.map((image, index) => (
                                     <CarouselItem key={index} className={`h-full flex flex-col items-center justify-start p-1 sm:p-4 ${isMobile ? 'pt-20' : ''}`}>
                                         <div className="text-center mb-2">
-                                            <p className="text-sm sm:text-lg font-semibold">Page {index + 1} of {images.length}</p>
+                                            <p className="text-sm sm:text-lg font-semibold text-white">Page {index + 1} of {images.length}</p>
                                             {isMobile && images.length > 1 && (
-                                                <p className="text-xs text-muted-foreground mt-1">Swipe to navigate</p>
+                                                <p className="text-xs text-purple-200 mt-1">Swipe to navigate</p>
                                             )}
                                         </div>
                                         <div className={`relative w-full aspect-[8.5/11] shadow-lg rounded-md overflow-hidden bg-white mx-auto flex-shrink-0 ${isMobile ? 'max-w-[80vw]' : 'max-w-[500px]'}`}>
@@ -191,7 +191,7 @@ export function ImagePreviewGrid({ images: initialImages, style, difficulty, onS
                                         </div>
                                         <div className={`flex flex-col items-center gap-6 mt-6 w-full mx-auto ${isMobile ? 'max-w-[80vw] px-0' : 'max-w-[500px] px-0'} sm:gap-8 sm:mt-8`}>
                                              <div className="grid w-full gap-3" onClick={(e) => e.stopPropagation()}>
-                                                <Label htmlFor="notes" className="text-xs sm:text-sm">Regeneration Notes (Optional)</Label>
+                                                <Label htmlFor="notes" className="text-xs sm:text-sm text-purple-200">Regeneration Notes (Optional)</Label>
                                                 <Textarea 
                                                     id="notes" 
                                                     placeholder="e.g., 'make lines thicker'" 

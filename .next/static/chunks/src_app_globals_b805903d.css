@@ -824,6 +824,10 @@ h1, h2, h3, h4, h5, h6 {
   min-height: 100svh;
 }
 
+.min-h-\[400px\] {
+  min-height: 400px;
+}
+
 .w-0 {
   width: 0;
 }
@@ -1582,6 +1586,10 @@ h1, h2, h3, h4, h5, h6 {
 
 .p-\[1px\] {
   padding: 1px;
+}
+
+.p-12 {
+  padding: 3rem;
 }
 
 .px-1 {
@@ -2882,6 +2890,11 @@ h1, h2, h3, h4, h5, h6 {
     top: auto;
   }
 
+  .sm\:mx-0 {
+    margin-left: 0;
+    margin-right: 0;
+  }
+
   .sm\:ml-auto {
     margin-left: auto;
   }
@@ -2974,8 +2987,16 @@ h1, h2, h3, h4, h5, h6 {
     flex-direction: column;
   }
 
+  .sm\:items-start {
+    align-items: flex-start;
+  }
+
   .sm\:items-center {
     align-items: center;
+  }
+
+  .sm\:justify-start {
+    justify-content: flex-start;
   }
 
   .sm\:justify-end {
@@ -3110,6 +3131,10 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 @media (width >= 768px) {
+  .md\:mt-6 {
+    margin-top: 1.5rem;
+  }
+
   .md\:block {
     display: block;
   }
@@ -3138,6 +3163,12 @@ h1, h2, h3, h4, h5, h6 {
     --tw-space-y-reverse: 0;
     margin-top: calc(1rem * calc(1 - var(--tw-space-y-reverse)));
     margin-bottom: calc(1rem * var(--tw-space-y-reverse));
+  }
+
+  .md\:space-y-8 > :not([hidden]) ~ :not([hidden]) {
+    --tw-space-y-reverse: 0;
+    margin-top: calc(2rem * calc(1 - var(--tw-space-y-reverse)));
+    margin-bottom: calc(2rem * var(--tw-space-y-reverse));
   }
 
   .md\:px-6 {
@@ -3287,8 +3318,24 @@ h1, h2, h3, h4, h5, h6 {
   height: 2rem !important;
 }
 
+.\[\&\>button\>svg\]\:\!h-6 > button > svg {
+  height: 1.5rem !important;
+}
+
+.\[\&\>button\>svg\]\:\!h-5 > button > svg {
+  height: 1.25rem !important;
+}
+
 .\[\&\>button\>svg\]\:\!w-8 > button > svg {
   width: 2rem !important;
+}
+
+.\[\&\>button\>svg\]\:\!w-6 > button > svg {
+  width: 1.5rem !important;
+}
+
+.\[\&\>button\>svg\]\:\!w-5 > button > svg {
+  width: 1.25rem !important;
 }
 
 .\[\&\>button\]\:\!right-4 > button {
@@ -3311,8 +3358,79 @@ h1, h2, h3, h4, h5, h6 {
   z-index: 60 !important;
 }
 
+.\[\&\>button\]\:\!z-\[100\] > button {
+  z-index: 100 !important;
+}
+
+.\[\&\>button\]\:\!flex > button {
+  display: flex !important;
+}
+
 .\[\&\>button\]\:hidden > button {
   display: none;
+}
+
+.\[\&\>button\]\:\!min-h-\[48px\] > button {
+  min-height: 48px !important;
+}
+
+.\[\&\>button\]\:\!min-h-\[36px\] > button {
+  min-height: 36px !important;
+}
+
+.\[\&\>button\]\:\!min-w-\[48px\] > button {
+  min-width: 48px !important;
+}
+
+.\[\&\>button\]\:\!min-w-\[36px\] > button {
+  min-width: 36px !important;
+}
+
+.\[\&\>button\]\:\!items-center > button {
+  align-items: center !important;
+}
+
+.\[\&\>button\]\:\!justify-center > button {
+  justify-content: center !important;
+}
+
+.\[\&\>button\]\:\!rounded-full > button {
+  border-radius: 9999px !important;
+}
+
+.\[\&\>button\]\:\!bg-purple-800\/80 > button {
+  background-color: #6b21a8cc !important;
+}
+
+.\[\&\>button\]\:\!bg-\[\#1a0d2e\]\/90 > button {
+  background-color: #1a0d2ee6 !important;
+}
+
+.\[\&\>button\]\:\!bg-purple-700\/80 > button {
+  background-color: #7e22cecc !important;
+}
+
+.\[\&\>button\]\:\!p-3 > button {
+  padding: .75rem !important;
+}
+
+.\[\&\>button\]\:\!p-4 > button {
+  padding: 1rem !important;
+}
+
+.\[\&\>button\]\:\!p-2\.5 > button {
+  padding: .625rem !important;
+}
+
+.\[\&\>button\]\:\!text-white > button {
+  --tw-text-opacity: 1 !important;
+  color: rgb(255 255 255 / var(--tw-text-opacity, 1)) !important;
+}
+
+.\[\&\>button\]\:\!transition-colors > button {
+  transition-property: color, background-color, border-color, text-decoration-color, fill, stroke !important;
+  transition-duration: .15s !important;
+  transition-timing-function: cubic-bezier(.4, 0, .2, 1) !important;
 }
 
 @media (width >= 768px) {

@@ -33,40 +33,40 @@ export default function Home() {
 
   return (
     <div className="flex flex-col min-h-screen bg-[#2d1b4e]">
-       <header className="px-4 lg:px-6 h-16 flex items-center bg-[#2d1b4e]/80 backdrop-blur-sm sticky top-0 z-50 border-b border-purple-800">
+       <header className="px-4 lg:px-6 h-16 flex items-center justify-center sm:justify-start bg-[#2d1b4e]/80 backdrop-blur-sm sticky top-0 z-50 border-b border-purple-800">
         <Link href="/" className="flex items-center justify-center gap-2" prefetch={false}>
           <Logo className="h-6 w-6 text-purple-300" />
           <span className="text-xl font-semibold font-headline text-white">ColoringPics</span>
         </Link>
-        <nav className="ml-auto flex gap-4 sm:gap-6">
+        <nav className="hidden sm:ml-auto sm:flex gap-4 sm:gap-6">
         </nav>
       </header>
       <main className="flex-1">
         <section className="w-full pt-4 pb-12 md:py-24 lg:py-32 xl:py-48">
           <div className="container px-4 md:px-6">
             <div className="grid gap-8 md:gap-6 lg:grid-cols-[1fr_400px] lg:gap-12 xl:grid-cols-[1fr_600px]">
-              <div className="flex flex-col justify-center space-y-6 md:space-y-4">
-                <div className="space-y-6 md:space-y-4">
+              <div className="flex flex-col justify-center space-y-6 md:space-y-8 text-center sm:text-left">
+                <div className="space-y-6 md:space-y-8">
                   <h1 className="text-2xl font-bold tracking-tighter sm:text-5xl xl:text-6xl/none font-headline text-white">
-                    Create custom coloring books from your photos – fast!
+                    Create custom coloring books from your photo library – fast!
                   </h1>
-                  <p className="max-w-[600px] text-purple-100 md:text-xl">
-                    Upload your favorite photos, and let AI convert them into beautiful, printable coloring books.
-                  </p>
-                  <blockquote className="text-lg md:text-xl font-medium text-purple-50 italic border-l-4 border-purple-300 pl-4">
+                  <blockquote className="text-lg md:text-xl font-medium text-purple-50 italic border-l-4 border-purple-300 pl-4 mx-auto sm:mx-0 max-w-[600px]">
                     Capture the moments that matter.<br />
                     Let your child color their story.
                   </blockquote>
+                  <p className="max-w-[600px] text-purple-100 md:text-xl mx-auto sm:mx-0">
+                    Create. Print. Color.
+                  </p>
                 </div>
-                <div className="flex flex-col gap-2 min-[400px]:flex-row">
-                   <Button asChild size="lg">
+                <div className="flex flex-col gap-2 min-[400px]:flex-row items-center sm:items-start">
+                   <Button asChild size="lg" className="w-full sm:w-auto">
                       <Link href="/create">
                         Create Your Coloring Book
                         <ArrowRight className="ml-2 h-4 w-4" />
                       </Link>
                     </Button>
                 </div>
-                <p className="text-sm text-purple-200 mt-4 max-w-[600px]">
+                <p className="text-sm text-purple-200 mt-4 md:mt-6 max-w-[600px] mx-auto sm:mx-0">
                   <strong>*Pro Tip:</strong> If your little one's imagination is running wild, you can tell our AI how you want to update the images to add a little extra magic to the memories.
                 </p>
               </div>
@@ -112,13 +112,15 @@ export default function Home() {
       
       {/* Mobile-only fixed button at bottom when scrolled */}
       {isMobile && isAtBottom && (
-        <div className="fixed bottom-0 left-0 right-0 z-50 pt-4 pb-9 bg-[#2d1b4e]/95 backdrop-blur-sm border-t border-purple-800 sm:hidden">
-          <Button asChild size="lg" className="w-full rounded-none">
-            <Link href="/create">
-              Create Your Coloring Book
-              <ArrowRight className="ml-2 h-4 w-4" />
-            </Link>
-          </Button>
+        <div className="fixed bottom-0 left-0 right-0 z-50 pt-4 pb-9 bg-[#2d1b4e]/95 backdrop-blur-sm border-t border-purple-800 sm:hidden px-4">
+          <div className="flex flex-col gap-2">
+            <Button asChild size="lg" className="w-full">
+              <Link href="/create">
+                Create Your Coloring Book
+                <ArrowRight className="ml-2 h-4 w-4" />
+              </Link>
+            </Button>
+          </div>
         </div>
       )}
     </div>
