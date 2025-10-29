@@ -155,8 +155,17 @@ export function ImagePreviewGrid({ images: initialImages, style, difficulty, onS
             </div>
 
             <Dialog open={previewIndex !== null} onOpenChange={(isOpen) => !isOpen && setPreviewIndex(null)}>
-                <DialogContent className={`${isMobile ? 'w-screen h-screen max-w-none max-h-none m-0 rounded-none' : 'max-w-6xl w-[95vw] max-h-[95vh]'} p-0 bg-secondary flex flex-col justify-center items-center`}>
+                <DialogContent className={`${isMobile ? 'w-screen h-screen max-w-none max-h-none m-0 rounded-none' : 'max-w-6xl w-[95vw] max-h-[95vh]'} p-0 bg-secondary flex flex-col justify-center items-center relative`}>
                     <DialogTitle className="sr-only">Coloring Book Preview</DialogTitle>
+                    {isMobile && (
+                        <Button
+                            onClick={() => setPreviewIndex(null)}
+                            className="absolute top-4 right-4 z-10 bg-background/80 hover:bg-background text-foreground"
+                            size="sm"
+                        >
+                            <X className="h-4 w-4" />
+                        </Button>
+                    )}
                     {previewIndex !== null && (
                         <Carousel 
                             opts={{ startIndex: previewIndex, loop: true }} 
@@ -181,17 +190,18 @@ export function ImagePreviewGrid({ images: initialImages, style, difficulty, onS
                                             />
                                         </div>
                                         <div className="flex flex-col items-center gap-2 mt-2 w-full max-w-sm px-2">
-                                             <div className="grid w-full gap-1">
+                                             <div className="grid w-full gap-1" onClick={(e) => e.stopPropagation()}>
                                                 <Label htmlFor="notes" className="text-xs sm:text-sm">Regeneration Notes (Optional)</Label>
                                                 <Textarea 
                                                     id="notes" 
                                                     placeholder="e.g., 'make lines thicker'" 
                                                     value={userNotes}
                                                     onChange={(e) => setUserNotes(e.target.value)}
+                                                    onClick={(e) => e.stopPropagation()}
                                                     className="min-h-[50px] text-xs sm:text-sm"
                                                 />
                                             </div>
-                                            <div className="flex gap-2 w-full">
+                                            <div className="flex gap-2 w-full" onClick={(e) => e.stopPropagation()}>
                                                 <Button
                                                     size="sm"
                                                     onClick={() => handleRegenerate(index)}
